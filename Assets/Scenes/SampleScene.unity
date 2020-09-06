@@ -880,6 +880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 282840813}
   panSenitivity: 0.05
+  zoomSensitivity: 30
   lastClickedCoordinate: {x: 0, y: 0, z: 0}
   GameSpeed: 2
   highlightMaterial: {fileID: 2100000, guid: 91acd8aa6b91c234b841559f69e4713b, type: 2}

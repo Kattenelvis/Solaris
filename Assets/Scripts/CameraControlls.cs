@@ -6,12 +6,13 @@ public class CameraControlls : MonoBehaviour
 {
     public Camera mainCamera;
     public float panSenitivity;
+    public float zoomSensitivity;
     public Vector3 lastClickedCoordinate;
 
     public float GameSpeed;
-
     void Update()
     {
+        Zoom();
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
@@ -22,8 +23,6 @@ public class CameraControlls : MonoBehaviour
                 if (hit.rigidbody != null && currentlySelectedGameObject.gameObject.CompareTag("Selectable"))
                 {
                     lastClickedCoordinate = hit.point;
-
-                    Debug.Log(currentlySelectedGameObject.transform);
                 }
             }
         }
@@ -42,6 +41,11 @@ public class CameraControlls : MonoBehaviour
         float cameraZposition = mainCamera.transform.position.z + Input.GetAxis("Vertical") * panSenitivity;
 
         mainCamera.transform.position = new Vector3(cameraXposition, cameraYposition, cameraZposition);
+    }
+
+    void Zoom()
+    {
+        mainCamera.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity));
     }
 
     public Material highlightMaterial;
