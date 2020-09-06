@@ -4,63 +4,75 @@ using UnityEngine;
 
 public class CameraControlls : MonoBehaviour
 {
-
     public Camera mainCamera;
     public float panSenitivity;
+    public Vector3 lastClickedCoordinate;
+
+    public float GameSpeed;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.rigidbody != null)
+                if (hit.rigidbody != null && currentlySelectedGameObject.gameObject.CompareTag("Selectable"))
                 {
-                    Debug.Log(hit.point);
+                    lastClickedCoordinate = hit.point;
+
+                    Debug.Log(currentlySelectedGameObject.transform);
                 }
             }
         }
+        if (lastClickedCoordinate != null && currentlySelectedGameObject != null && currentlySelectedGameObject.CompareTag("Selectable"))
+        {
+            currentlySelectedGameObject.transform.position = Vector3.MoveTowards(currentlySelectedGameObject.transform.position, lastClickedCoordinate, Time.deltaTime * GameSpeed);
+        }
+        PanCamera();
+        Selection();
+    }
 
-
-
+    void PanCamera()
+    {
         float cameraXposition = mainCamera.transform.position.x + Input.GetAxis("Horizontal") * panSenitivity;
         float cameraYposition = mainCamera.transform.position.y;
         float cameraZposition = mainCamera.transform.position.z + Input.GetAxis("Vertical") * panSenitivity;
 
         mainCamera.transform.position = new Vector3(cameraXposition, cameraYposition, cameraZposition);
-
-
-        Selection();
-
-
     }
+
     public Material highlightMaterial;
-    public string selectableTag = "Selectable";
-    [SerializeField] private Material defaultMaterial;
-    private Transform _selection;
+    private Material defaultMaterial;
+    private Transform selection;
+    public GameObject currentlySelectedGameObject;
+    //This function turns selected objects slightly green
     void Selection()
     {
-        if (_selection != null)
+        //Returns objects to normal once they're no longer selected
+        if (selection != null)
         {
-            var selectionRenderer = _selection.GetComponent<Renderer>();
+            var selectionRenderer = selection.GetComponent<Renderer>();
             selectionRenderer.material = defaultMaterial;
-            _selection = null;
+            selection = null;
         }
 
+        //Turns them green once they're selected
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            var selection = hit.transform;
+            selection = hit.transform;
             var selectionRenderer = selection.GetComponent<Renderer>();
-            if (selectionRenderer != null)
+            //Make sure this is not the backround plane that's used for co-ordinates
+            if (selectionRenderer != null && !selection.gameObject.CompareTag("Plane"))
             {
                 defaultMaterial = selectionRenderer.material;
                 selectionRenderer.material = highlightMaterial;
+                currentlySelectedGameObject = selection.gameObject;
             }
-            _selection = selection;
         }
     }
 }
