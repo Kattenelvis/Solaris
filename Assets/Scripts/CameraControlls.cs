@@ -13,7 +13,7 @@ public class CameraControlls : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         float cameraXposition = mainCamera.transform.position.x + Input.GetAxis("Horizontal") * panSenitivity;
@@ -22,5 +22,36 @@ public class CameraControlls : MonoBehaviour
 
         mainCamera.transform.position = new Vector3(cameraXposition, cameraYposition, cameraZposition);
 
+
+        Selection();
+
+
+    }
+    public Material highlightMaterial;
+    public string selectableTag = "Selectable";
+    [SerializeField] private Material defaultMaterial;
+    private Transform _selection;
+    void Selection()
+    {
+        if (_selection != null)
+        {
+            var selectionRenderer = _selection.GetComponent<Renderer>();
+            selectionRenderer.material = defaultMaterial;
+            _selection = null;
+        }
+
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            var selection = hit.transform;
+            var selectionRenderer = selection.GetComponent<Renderer>();
+            if (selectionRenderer != null)
+            {
+                defaultMaterial = selectionRenderer.material;
+                selectionRenderer.material = highlightMaterial;
+            }
+            _selection = selection;
+        }
     }
 }
