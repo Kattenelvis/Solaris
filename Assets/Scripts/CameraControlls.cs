@@ -7,15 +7,24 @@ public class CameraControlls : MonoBehaviour
 
     public Camera mainCamera;
     public float panSenitivity;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.rigidbody != null)
+                {
+                    Debug.Log(hit.point);
+                }
+            }
+        }
+
+
+
         float cameraXposition = mainCamera.transform.position.x + Input.GetAxis("Horizontal") * panSenitivity;
         float cameraYposition = mainCamera.transform.position.y;
         float cameraZposition = mainCamera.transform.position.z + Input.GetAxis("Vertical") * panSenitivity;
