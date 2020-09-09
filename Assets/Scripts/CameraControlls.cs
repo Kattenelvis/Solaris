@@ -48,8 +48,6 @@ public class CameraControlls : MonoBehaviour
         mainCamera.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity));
     }
 
-    public Material highlightMaterial;
-    private Material defaultMaterial;
     private Transform selection;
     public GameObject currentlySelectedGameObject;
 
@@ -61,8 +59,6 @@ public class CameraControlls : MonoBehaviour
         //Returns objects to normal once they're no longer selected
         if (selection != null)
         {
-            var selectionRenderer = selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
             selection = null;
             changeCursor(defaultCursor);
         }
@@ -73,15 +69,21 @@ public class CameraControlls : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             selection = hit.transform;
-            var selectionRenderer = selection.GetComponent<Renderer>();
             //Make sure this is not the backround plane that's used for co-ordinates
-            if (selectionRenderer != null && !selection.gameObject.CompareTag("Plane"))
+            if (selection.gameObject.CompareTag("Selectable"))
             {
                 changeCursor(highlightCursor, new Vector2(40, 40));
-                defaultMaterial = selectionRenderer.material;
-                selectionRenderer.material = highlightMaterial;
                 currentlySelectedGameObject = selection.gameObject;
             }
+            if (selection.gameObject.CompareTag("Astronomical_Object"))
+            {
+                changeCursor(highlightCursor, new Vector2(40, 40));
+                if (Input.GetMouseButtonDown(1))
+                {
+                    Debug.Log("hi");
+                }
+            }
+
         }
     }
 
