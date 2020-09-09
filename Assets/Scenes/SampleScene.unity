@@ -999,7 +999,7 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 91acd8aa6b91c234b841559f69e4713b, type: 2}
   currentlySelectedGameObject: {fileID: 0}
   highlightCursor: {fileID: 2800000, guid: 170af75e8697bcc48a5db20c13055362, type: 3}
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: d033cb340d6e7dc4aa9408c9945443da, type: 3}
 --- !u!4 &1128995555
 Transform:
   m_ObjectHideFlags: 0

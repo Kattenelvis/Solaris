@@ -64,6 +64,7 @@ public class CameraControlls : MonoBehaviour
             var selectionRenderer = selection.GetComponent<Renderer>();
             selectionRenderer.material = defaultMaterial;
             selection = null;
+            changeCursor(defaultCursor);
         }
 
         //Turns them green once they're selected
@@ -76,7 +77,7 @@ public class CameraControlls : MonoBehaviour
             //Make sure this is not the backround plane that's used for co-ordinates
             if (selectionRenderer != null && !selection.gameObject.CompareTag("Plane"))
             {
-                Cursor.SetCursor(highlightCursor, Vector2.zero, CursorMode.ForceSoftware);
+                changeCursor(highlightCursor);
                 defaultMaterial = selectionRenderer.material;
                 selectionRenderer.material = highlightMaterial;
                 currentlySelectedGameObject = selection.gameObject;
@@ -84,6 +85,10 @@ public class CameraControlls : MonoBehaviour
         }
     }
 
+    void changeCursor(Texture2D cursor)
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
+    }
 
 
 
