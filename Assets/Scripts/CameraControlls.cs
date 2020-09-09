@@ -77,7 +77,7 @@ public class CameraControlls : MonoBehaviour
             //Make sure this is not the backround plane that's used for co-ordinates
             if (selectionRenderer != null && !selection.gameObject.CompareTag("Plane"))
             {
-                changeCursor(highlightCursor);
+                changeCursor(highlightCursor, new Vector2(40, 40));
                 defaultMaterial = selectionRenderer.material;
                 selectionRenderer.material = highlightMaterial;
                 currentlySelectedGameObject = selection.gameObject;
@@ -89,7 +89,10 @@ public class CameraControlls : MonoBehaviour
     {
         Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
     }
-
+    void changeCursor(Texture2D cursor, Vector2 offset)
+    {
+        Cursor.SetCursor(cursor, offset, CursorMode.ForceSoftware);
+    }
 
 
 
