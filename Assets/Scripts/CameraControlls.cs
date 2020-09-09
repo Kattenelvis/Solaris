@@ -13,23 +13,13 @@ public class CameraControlls : MonoBehaviour
     void Update()
     {
         Zoom();
-        if (Input.GetMouseButtonDown(1))
-        {
-            RaycastHit hit;
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.rigidbody != null && currentlySelectedGameObject.gameObject.CompareTag("Selectable"))
-                {
-                    lastClickedCoordinate = hit.point;
-                }
-            }
-        }
+        //Moves the ship to it's position. 
         if (lastClickedCoordinate != null && currentlySelectedGameObject != null && currentlySelectedGameObject.CompareTag("Selectable"))
         {
             currentlySelectedGameObject.transform.position = Vector3.MoveTowards(currentlySelectedGameObject.transform.position, lastClickedCoordinate, Time.deltaTime * GameSpeed);
         }
+
         PanCamera();
         Selection();
     }
@@ -69,17 +59,28 @@ public class CameraControlls : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             selection = hit.transform;
-            //Make sure this is not the backround plane that's used for co-ordinates
+            //Make sure this is not the backround plane that's used for co-ordinates  
             if (selection.gameObject.CompareTag("Selectable"))
             {
                 changeCursor(highlightCursor, new Vector2(40, 40));
                 currentlySelectedGameObject = selection.gameObject;
+                if (Input.GetMouseButtonDown(1))
+                {
+
+                    print(lastClickedCoordinate);
+                }
             }
             if (selection.gameObject.CompareTag("Astronomical_Object"))
             {
                 changeCursor(highlightCursor, new Vector2(40, 40));
+
+            }
+            if (selection.gameObject.CompareTag("Plane"))
+            {
                 if (Input.GetMouseButtonDown(1))
                 {
+                    lastClickedCoordinate = hit.point;
+
                     Debug.Log("hi");
                 }
             }
