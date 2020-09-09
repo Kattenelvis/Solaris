@@ -7,8 +7,6 @@ public struct Product
     public float demand;
     public float supply;
 
-
-
 }
 public class EarthMarket : MonoBehaviour
 {
