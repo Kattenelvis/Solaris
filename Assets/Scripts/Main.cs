@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Handles game logic. Make sure to keep logic seperated from graphics.
-public class Main : MonoBehaviour
+class Main : MonoBehaviour
 {
-    public IAstronomicalObject Earth = new AstronomicalObject();
-    public IAstronomicalObject Moon = new AstronomicalObject();
-    public Country Player = new Country(Country.controlledBy.HUMAN);
-    public Country Enemy = new Country(Country.controlledBy.AI);
-    public Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
+    IAstronomicalObject Earth = new AstronomicalObject();
+    IAstronomicalObject Moon = new AstronomicalObject();
+    Country Player = new Country(Country.controlledBy.HUMAN);
+    Country Enemy = new Country(Country.controlledBy.AI);
+    Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
     [SerializeField]
     CameraControlls cameraControlls;
     void Start()
@@ -20,28 +20,27 @@ public class Main : MonoBehaviour
         Moon.regions = new List<Region>();
         Moon.regions.Add(new Region("The Forward Side", UnclaimedLand));
         Moon.regions.Add(new Region("The Back Side", UnclaimedLand));
-
-
     }
 
     //a tick is the real-time equivalent of a turn. 
-    public int tick;
+    int tick;
     void newTick()
     {
         //Updates the UI every tick
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
         if (selectedAstronomicalObject != null)
-            GameObject.Find("Canvas").GetComponent<UIManager>().togglePlanet(selectedAstronomicalObject.name);
+            GameObject.Find("Canvas").GetComponent<UIManager>().showPlanet(selectedAstronomicalObject.name, true);
         tick++;
     }
 
 
-    public const int maxSpeed = 100;
+    const int maxSpeed = 100;
 
     [Range(0, maxSpeed)]
+    [SerializeField]
     public int gameSpeed;
-    private int i = 0;
-    private void Update()
+    int i = 0;
+    void Update()
     {
         /*the increment (increased by one every frame) modulo the difference between
         maxSpeed and current speed. Modulo is also known as "clock arithmetic", look it up on google.

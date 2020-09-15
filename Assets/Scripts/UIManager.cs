@@ -7,15 +7,18 @@ public class UIManager : MonoBehaviour
     private GameObject[] planetUIs;
     public void updateUI()
     {
-        togglePlanet("Earth");
+        //showPlanet("Earth");
     }
 
-    public void togglePlanet(string planetName)
+    public void showPlanet(string planetName, bool show)
     {
-        Transform UIelement = this.transform.Find("Astronomical Objects").Find(planetName);
-        if (UIelement != null)
+        if (show)
         {
-            UIelement.gameObject.SetActive(!UIelement.gameObject.activeInHierarchy);
+            Transform UIelement = this.transform.Find("Astronomical Objects").Find(planetName);
+            if (UIelement != null)
+            {
+                UIelement.gameObject.SetActive(show);
+            }
         }
     }
 }
