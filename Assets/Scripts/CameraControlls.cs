@@ -41,6 +41,7 @@ public class CameraControlls : MonoBehaviour
     public Texture2D highlightCursor;
     public Texture2D defaultCursor;
     public AstronomicalObject selectedAstronomicalObject;
+    [SerializeField] UIManager uiManager;
     void Selection()
     {
         //Returns objects to normal once they're no longer selected
@@ -66,19 +67,29 @@ public class CameraControlls : MonoBehaviour
                     print(lastClickedCoordinate);
                 }
             }
+            //If hovering mouse over a planet
             if (selection.gameObject.CompareTag("Astronomical_Object"))
             {
                 changeCursor(highlightCursor, new Vector2(40, 40));
 
-                if (Input.GetMouseButton(0)) selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
-
+                //If clicked on planet/asteroid/moon e.t.c
+                if (Input.GetMouseButton(0))
+                {
+                    uiManager.showPlanet(selectedAstronomicalObject, false);
+                    selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
+                    uiManager.showPlanet(selectedAstronomicalObject, true);
+                }
 
             }
             if (selection.gameObject.CompareTag("Plane"))
             {
                 if (Input.GetMouseButtonDown(1))
-                {
                     lastClickedCoordinate = hit.point;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    uiManager.showPlanet(selectedAstronomicalObject, false);
+                    selectedAstronomicalObject = null;
+
                 }
             }
         }

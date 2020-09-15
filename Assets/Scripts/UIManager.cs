@@ -4,21 +4,18 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] planetUIs;
+    private AstronomicalObject[] planetUIs;
     public void updateUI()
     {
         //showPlanet("Earth");
     }
 
-    public void showPlanet(string planetName, bool show)
+    public void showPlanet(AstronomicalObject astronomicalObject, bool show)
     {
-        if (show)
+        if (astronomicalObject != null)
         {
-            Transform UIelement = this.transform.Find("Astronomical Objects").Find(planetName);
-            if (UIelement != null)
-            {
-                UIelement.gameObject.SetActive(show);
-            }
+            Transform UIelement = this.transform.Find("Astronomical Objects").Find(astronomicalObject.name);
+            UIelement.gameObject.SetActive(show);
         }
     }
 }

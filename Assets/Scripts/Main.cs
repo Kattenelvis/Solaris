@@ -29,7 +29,7 @@ class Main : MonoBehaviour
         //Updates the UI every tick
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
         if (selectedAstronomicalObject != null)
-            GameObject.Find("Canvas").GetComponent<UIManager>().showPlanet(selectedAstronomicalObject.name, true);
+            GameObject.Find("Canvas").GetComponent<UIManager>().showPlanet(selectedAstronomicalObject, true);
         tick++;
     }
 
