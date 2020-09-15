@@ -10,6 +10,8 @@ public class Main : MonoBehaviour
     public Country Player = new Country(Country.controlledBy.HUMAN);
     public Country Enemy = new Country(Country.controlledBy.AI);
     public Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
+    [SerializeField]
+    CameraControlls cameraControlls;
     void Start()
     {
         Earth.regions = new List<Region>();
@@ -26,6 +28,10 @@ public class Main : MonoBehaviour
     public int tick;
     void newTick()
     {
+        //Updates the UI every tick
+        AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
+        if (selectedAstronomicalObject != null)
+            GameObject.Find("Canvas").GetComponent<UIManager>().togglePlanet(selectedAstronomicalObject.name);
         tick++;
     }
 

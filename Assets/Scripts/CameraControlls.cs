@@ -40,7 +40,7 @@ public class CameraControlls : MonoBehaviour
 
     public Texture2D highlightCursor;
     public Texture2D defaultCursor;
-    //This function turns selected objects slightly green
+    public AstronomicalObject selectedAstronomicalObject;
     void Selection()
     {
         //Returns objects to normal once they're no longer selected
@@ -63,13 +63,15 @@ public class CameraControlls : MonoBehaviour
                 currentlySelectedGameObject = selection.gameObject;
                 if (Input.GetMouseButtonDown(1))
                 {
-
                     print(lastClickedCoordinate);
                 }
             }
             if (selection.gameObject.CompareTag("Astronomical_Object"))
             {
                 changeCursor(highlightCursor, new Vector2(40, 40));
+
+                if (Input.GetMouseButton(0)) selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
+
 
             }
             if (selection.gameObject.CompareTag("Plane"))
