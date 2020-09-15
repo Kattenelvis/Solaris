@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8015857
 RectTransform:
   m_ObjectHideFlags: 0
@@ -150,8 +150,10 @@ RectTransform:
   m_GameObject: {fileID: 8015856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13.515793, y: 6.4247723, z: 6.4247723}
-  m_Children: []
+  m_LocalScale: {x: 16.394657, y: 7.793249, z: 7.793249}
+  m_Children:
+  - {fileID: 907949001}
+  - {fileID: 147929347}
   m_Father: {fileID: 2083899123}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -304,6 +306,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Sun
+--- !u!1 &147929346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 147929347}
+  - component: {fileID: 147929350}
+  - component: {fileID: 147929349}
+  - component: {fileID: 147929348}
+  m_Layer: 5
+  m_Name: Region1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &147929347
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147929346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.21723059, y: 0.4333515, z: 0.4271998}
+  m_Children: []
+  m_Father: {fileID: 8015857}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 10.47, y: 31.88}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &147929348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147929346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8113cab45d9aa3f43ab0a9ddce14d9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: 10
+  name: Western Russia
+--- !u!114 &147929349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147929346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053c3b61d20cb72408d2a2968ad09ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  fill: 1
+  thickness: 3
+  sides: 20
+  rotation: 0
+  VerticesDistances:
+  - 0.785
+  - 0.687
+  - 0.779
+  - 0.631
+  - 0.514
+  - 0.557
+  - 0.705
+  - 0.736
+  - 0.859
+  - 0.803
+  - 0.748
+  - 0.655
+  - 0.569
+  - 0.655
+  - 0.951
+  - 1
+  - 1
+  - 1
+  - 0.853
+  - 0.551
+  - 0.785
+--- !u!222 &147929350
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147929346}
+  m_CullTransparentMesh: 0
 --- !u!1 &210526064
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +843,113 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 22.467, y: -28.294, z: -608.78}
+--- !u!1 &907949000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907949001}
+  - component: {fileID: 907949003}
+  - component: {fileID: 907949002}
+  - component: {fileID: 907949004}
+  m_Layer: 5
+  m_Name: Region1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &907949001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907949000}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.21723059, y: 0.4271998, z: 0.4271998}
+  m_Children: []
+  m_Father: {fileID: 8015857}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.87, y: 26.36}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &907949002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907949000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053c3b61d20cb72408d2a2968ad09ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  fill: 1
+  thickness: 3
+  sides: 20
+  rotation: 0
+  VerticesDistances:
+  - 0.323
+  - 0.324
+  - 0.662
+  - 1
+  - 1
+  - 1
+  - 0.834
+  - 0.914
+  - 0.877
+  - 0.778
+  - 0.803
+  - 0.637
+  - 0.582
+  - 0.649
+  - 0.748
+  - 0.988
+  - 1
+  - 0.877
+  - 0.828
+  - 0.551
+  - 0.323
+--- !u!222 &907949003
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907949000}
+  m_CullTransparentMesh: 0
+--- !u!114 &907949004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907949000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8113cab45d9aa3f43ab0a9ddce14d9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: 10
+  name: Western Europe
 --- !u!1 &963697328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetUIs:
-  - {fileID: 0}
+  - {fileID: 8015856}
 --- !u!1 &1443380664
 GameObject:
   m_ObjectHideFlags: 0
