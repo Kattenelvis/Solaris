@@ -658,6 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963697329}
   - component: {fileID: 963697330}
+  - component: {fileID: 963697331}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -691,6 +692,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3390fa785520dc548a08abe516cb425b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963697331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963697328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376bbe4314e455d41b2e1172d84d2274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 100
+  gameSpeed: 1
+  tick: 0
 --- !u!1 &965366687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1021,6 @@ MonoBehaviour:
   panSenitivity: 0.05
   zoomSensitivity: 30
   lastClickedCoordinate: {x: 0, y: 0, z: 0}
-  GameSpeed: 2
   currentlySelectedGameObject: {fileID: 0}
   highlightCursor: {fileID: 2800000, guid: 170af75e8697bcc48a5db20c13055362, type: 3}
   defaultCursor: {fileID: 2800000, guid: d033cb340d6e7dc4aa9408c9945443da, type: 3}
@@ -1142,7 +1157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1443380665
 CapsuleCollider:
   m_ObjectHideFlags: 0

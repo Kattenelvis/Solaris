@@ -8,15 +8,13 @@ public class CameraControlls : MonoBehaviour
     public float panSenitivity;
     public float zoomSensitivity;
     public Vector3 lastClickedCoordinate;
-    public float GameSpeed;
-
     void Update()
     {
         Zoom();
         //Moves the ship to it's position. 
         if (lastClickedCoordinate != null && currentlySelectedGameObject != null && currentlySelectedGameObject.CompareTag("Selectable"))
         {
-            currentlySelectedGameObject.transform.position = Vector3.MoveTowards(currentlySelectedGameObject.transform.position, lastClickedCoordinate, Time.deltaTime * GameSpeed);
+            currentlySelectedGameObject.transform.position = Vector3.MoveTowards(currentlySelectedGameObject.transform.position, lastClickedCoordinate, Time.deltaTime * this.gameObject.GetComponent<Main>().gameSpeed);
         }
 
         PanCamera();
@@ -37,7 +35,6 @@ public class CameraControlls : MonoBehaviour
     {
         mainCamera.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity));
     }
-
     private Transform selection;
     public GameObject currentlySelectedGameObject;
 
@@ -80,11 +77,8 @@ public class CameraControlls : MonoBehaviour
                 if (Input.GetMouseButtonDown(1))
                 {
                     lastClickedCoordinate = hit.point;
-
-
                 }
             }
-
         }
     }
 
