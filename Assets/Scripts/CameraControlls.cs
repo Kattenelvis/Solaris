@@ -8,12 +8,11 @@ public class CameraControlls : MonoBehaviour
     public float panSenitivity;
     public float zoomSensitivity;
     public Vector3 lastClickedCoordinate;
-
     public float GameSpeed;
+
     void Update()
     {
         Zoom();
-
         //Moves the ship to it's position. 
         if (lastClickedCoordinate != null && currentlySelectedGameObject != null && currentlySelectedGameObject.CompareTag("Selectable"))
         {
@@ -32,6 +31,7 @@ public class CameraControlls : MonoBehaviour
 
         mainCamera.transform.position = new Vector3(cameraXposition, cameraYposition, cameraZposition);
     }
+
 
     void Zoom()
     {
@@ -81,7 +81,7 @@ public class CameraControlls : MonoBehaviour
                 {
                     lastClickedCoordinate = hit.point;
 
-                    Debug.Log("hi");
+
                 }
             }
 

@@ -12,5 +12,4 @@ public class EarthMarket : MonoBehaviour
 {
     public Product[] products;
 
-
 }
