@@ -7,6 +7,7 @@ public class Country
         NOONE
     }
     controlledBy controller;
+    public int totalFuel;
     public Country(controlledBy _controller)
     {
         controller = _controller;

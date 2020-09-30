@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Handles game logic. Make sure to keep logic seperated from graphics.
+//THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() FUNCTION.
 class Main : MonoBehaviour
 {
     IAstronomicalObject Earth = new AstronomicalObject();
@@ -22,7 +22,7 @@ class Main : MonoBehaviour
         Moon.regions.Add(new Region("The Back Side", UnclaimedLand));
     }
 
-    //a tick is the real-time equivalent of a turn. 
+    //a tick is the real-time game equivalent of a turn. 
     int tick;
     void newTick()
     {
@@ -40,6 +40,7 @@ class Main : MonoBehaviour
     [SerializeField]
     public int gameSpeed;
     int i = 0;
+    //THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() FUNCTION.
     void Update()
     {
         /*the increment (increased by one every frame) modulo the difference between
@@ -54,5 +55,8 @@ class Main : MonoBehaviour
         {
             i++;
         }
+
+        //Controls
+        cameraControlls.cameraControlls();
     }
 }

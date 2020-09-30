@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject[] planetUIs;
     public void updateUI()
@@ -28,5 +29,17 @@ public class UIManager : MonoBehaviour
         UIelement.gameObject.SetActive(show);
         yield return new WaitForSeconds(0.1f);
         yield return null;
+    }
+    public GameObject fuelUI;
+    public void displayPlanetaryData(AstronomicalObject astroObject)
+    {
+        Instantiate(fuelUI, Vector3.one, transform.rotation);
+    }
+
+    private void Start() {
+        AstronomicalObject astroObj = new AstronomicalObject();
+        new Country(Country.controlledBy.NOONE);
+        //astroObj.regions.Add(new Region("yolo", new Country(Country.controlledBy.NOONE)));
+        //displayPlanetaryData(astroObj);
     }
 }

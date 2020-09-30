@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceShip : MonoBehaviour, ResourceShipInterface
+public class ResourceShip : MonoBehaviour
 {
     public int resources { get; set; }
     private void OnMouseDown()
