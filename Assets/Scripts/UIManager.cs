@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     {
         GameObject fuel = Instantiate(fuelUI, new Vector3(500,100,100), transform.rotation, this.transform);
         Text fuelText = fuel.GetComponent<Text>();
-        fuelText.text = astroObject.regions[0].hydrocarbons.ToString();
+        fuelText.text = astroObject.regions[0].refineries.ToString();
     }
 
     private void Start() {
