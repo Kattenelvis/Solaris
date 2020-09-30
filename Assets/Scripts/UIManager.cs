@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     
@@ -33,13 +34,14 @@ public class UIManager : MonoBehaviour
     public GameObject fuelUI;
     public void displayPlanetaryData(AstronomicalObject astroObject)
     {
-        Instantiate(fuelUI, Vector3.one, transform.rotation);
+        GameObject fuel = Instantiate(fuelUI, new Vector3(500,100,100), transform.rotation, this.transform);
+        Text fuelText = fuel.GetComponent<Text>();
+        fuelText.text = astroObject.regions[0].hydrocarbons.ToString();
     }
 
     private void Start() {
-        AstronomicalObject astroObj = new AstronomicalObject();
-        new Country(Country.controlledBy.NOONE);
-        //astroObj.regions.Add(new Region("yolo", new Country(Country.controlledBy.NOONE)));
-        //displayPlanetaryData(astroObj);
+        AstronomicalObject ast = new AstronomicalObject();
+        ast.regions.Add(new Region("yolo", new Country(Country.controlledBy.NOONE)));
+        displayPlanetaryData(ast);
     }
 }

@@ -1,12 +1,12 @@
 using UnityEngine;
-public class Region : MonoBehaviour
+public class Region : IRegion
 {
-    public Country owner;
-    public float resources;
-    public int hydrocarbons;
-    public int refineries;
-    public int fuel;
-    public string name;
+    public Country owner {get; set;}
+    public float resources {get; set;}
+    public int hydrocarbons {get; set;}
+    public int refineries {get; set;}
+    public int fuel {get; set;}
+    public string name {get; set;}
     public Region(string _name, Country _owner)
     {
         name = _name;

@@ -14,10 +14,10 @@ class Main : MonoBehaviour
     CameraControlls cameraControlls;
     void Start()
     {
-        Earth.regions = new List<Region>();
+        Earth.regions = new List<IRegion>();
         Earth.regions.Add(new Region("The West", Player));
         Earth.regions.Add(new Region("The East", Enemy));
-        Moon.regions = new List<Region>();
+        Moon.regions = new List<IRegion>();
         Moon.regions.Add(new Region("The Forward Side", UnclaimedLand));
         Moon.regions.Add(new Region("The Back Side", UnclaimedLand));
     }
