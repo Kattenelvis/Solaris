@@ -31,18 +31,17 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return null;
     }
-    public GameObject regionDataUI;
+    public GameObject textBox;
     public GameObject regionUI;
-    public void displayRegionalData(List<float> displayableStatistics, string regionName)
+    public void displayRegionalData(List<float> displayableStatistics, List<string> statisticsNames, string regionName)
     {
         GameObject regiUI = Instantiate(regionUI, new Vector3(500,100,100), transform.rotation, this.transform);
 
-
         for (int i = 0; i < 3; i++)
         {
-            GameObject textUIObject = Instantiate(regionDataUI, new Vector3(500,20*(i-1),100), transform.rotation, regiUI.transform);
+            GameObject textUIObject = Instantiate(textBox, new Vector3(500,20*(i-1),100), transform.rotation, regiUI.transform);
             Text textUI = textUIObject.GetComponent<Text>();
-            textUI.text = displayableStatistics[i].ToString();
+            textUI.text = statisticsNames[i] +": " + displayableStatistics[i].ToString();
         }
         Text regiUIMainText = regiUI.GetComponentInChildren<Text>();
         regiUIMainText.text = regionName;
@@ -51,13 +50,27 @@ public class UIManager : MonoBehaviour
     //Temporary for testing displayPlanetaryData
     private void Start() {
         AstronomicalObject ast = new AstronomicalObject();
-        ast.regions.Add(new Region("yolo", new Country(Country.controlledBy.NOONE)));
+        ast.regions.Add(new Region("Asia", new Country(Country.controlledBy.NOONE)));
         List<float> statistics = new List<float>{
             ast.regions[0].fuel,
             ast.regions[0].refineries,
             ast.regions[0].hydrocarbons,
 
         };
-        displayRegionalData(statistics, ast.name);
+
+        List<string> statisticsNames = new List<string>{
+            "fuel",
+            "refineries",
+            "hydrocarbons",
+
+        };
+        displayRegionalData(statistics, statisticsNames, ast.regions[0].name);
+    }
+
+//Will later be formated like 2030-03-04 for example
+    public Text timeUI;
+    public void displayTime(int ticks)
+    {
+        timeUI.text = "Days passed: " + ticks.ToString();
     }
 }

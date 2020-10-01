@@ -12,6 +12,7 @@ public class Region : IRegion
         owner = _owner;
         refineries = 10;
         fuel = 1000;
+        hydrocarbons = 3125;
     }
 
     

@@ -14,8 +14,11 @@ class Main : MonoBehaviour
     CameraControlls cameraControlls;
     Resource hydrocarbons = new Resource("hydrocarbons");
     Building refinery = new Building("Refinery");
+    UIManager uimanager; 
     void Start()
     {
+        uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        
         Earth.regions = new List<IRegion>();
         IRegion europe = new Region("Europe", Player);
         IRegion asia = new Region("Asia", Enemy);
@@ -36,7 +39,9 @@ class Main : MonoBehaviour
         //Updates the UI every tick
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
         if (selectedAstronomicalObject != null)
-            GameObject.Find("Canvas").GetComponent<UIManager>().showPlanet(selectedAstronomicalObject, true);
+            uimanager.showPlanet(selectedAstronomicalObject, true);
+        
+        uimanager.displayTime(tick);
         tick++;
     }
 
