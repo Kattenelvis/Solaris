@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 public interface IRegion {
     Country owner {get; set;}
-    float resources{get; set;}
-    int hydrocarbons{get; set;}
+    List<Resource> resources{get; set;}
     int refineries{get; set;}
     int fuel{get; set;}
     string name{get; set;}

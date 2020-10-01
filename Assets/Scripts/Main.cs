@@ -12,6 +12,7 @@ class Main : MonoBehaviour
     Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
     [SerializeField]
     CameraControlls cameraControlls;
+    Resource hydrocarbons = new Resource("hydrocarbons");
     void Start()
     {
         Earth.regions = new List<IRegion>();

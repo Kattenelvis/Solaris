@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
         fuelText.text = astroObject.regions[0].refineries.ToString();
     }
 
+    //Temporary for testing displayPlanetaryData
     private void Start() {
         AstronomicalObject ast = new AstronomicalObject();
         ast.regions.Add(new Region("yolo", new Country(Country.controlledBy.NOONE)));
