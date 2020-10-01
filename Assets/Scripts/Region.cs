@@ -2,7 +2,7 @@ using System.Collections.Generic;
 public class Region : IRegion
 {
     public Country owner {get; set;}
-    public List<Resource> resources{get; set;}
+    public int hydrocarbons{get; set;}
     public int refineries {get; set;}
     public int fuel {get; set;}
     public string name {get; set;}
@@ -13,4 +13,8 @@ public class Region : IRegion
         refineries = 10;
         fuel = 1000;
     }
+
+    
+
+
 }

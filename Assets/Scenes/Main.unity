@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe77455d3690fc419029a0e090e45df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Sun
+  Name: 
 --- !u!1 &147929346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe77455d3690fc419029a0e090e45df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Moon
+  Name: 
 --- !u!1 &1058175072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe77455d3690fc419029a0e090e45df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Earth
+  Name: 
 --- !u!850595691 &1095167525
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 2
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1514,7 +1514,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetUIs:
   - {fileID: 8015856}
-  fuelUI: {fileID: 9167065119326300242, guid: c42afd6c23e767147b6c54b839903e37, type: 3}
+  regionDataUI: {fileID: 9167065119326300242, guid: c42afd6c23e767147b6c54b839903e37,
+    type: 3}
+  regionUI: {fileID: 7984664228852558805, guid: 527200a3d03fafb4c91ba210e655c8ac,
+    type: 3}
 --- !u!1 &1443380664
 GameObject:
   m_ObjectHideFlags: 0

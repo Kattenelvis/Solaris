@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() FUNCTION.
+//THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() AND START() FUNCTION.
 class Main : MonoBehaviour
 {
     IAstronomicalObject Earth = new AstronomicalObject();
@@ -13,14 +13,20 @@ class Main : MonoBehaviour
     [SerializeField]
     CameraControlls cameraControlls;
     Resource hydrocarbons = new Resource("hydrocarbons");
+    Building refinery = new Building("Refinery");
     void Start()
     {
         Earth.regions = new List<IRegion>();
-        Earth.regions.Add(new Region("The West", Player));
-        Earth.regions.Add(new Region("The East", Enemy));
+        IRegion europe = new Region("Europe", Player);
+        IRegion asia = new Region("Asia", Enemy);
+        Earth.regions.Add(asia);
+        Earth.regions.Add(europe);
         Moon.regions = new List<IRegion>();
-        Moon.regions.Add(new Region("The Forward Side", UnclaimedLand));
-        Moon.regions.Add(new Region("The Back Side", UnclaimedLand));
+        IRegion moonFront = new Region("The Front Side", UnclaimedLand);
+        IRegion moonBack = new Region("The Back Side", UnclaimedLand);
+        Moon.regions.Add(moonBack);
+        Moon.regions.Add(moonFront);
+
     }
 
     //a tick is the real-time game equivalent of a turn. 

@@ -13,7 +13,7 @@ public class Resource
 public class Building
 {
     string name;
-    Building(string _name)
+    public Building(string _name)
     {
         name = _name;
     }    
