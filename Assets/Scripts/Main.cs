@@ -18,7 +18,7 @@ class Main : MonoBehaviour
     void Start()
     {
         uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
-        
+
         Earth.regions = new List<IRegion>();
         IRegion europe = new Region("Europe", Player);
         IRegion asia = new Region("Asia", Enemy);
@@ -42,6 +42,7 @@ class Main : MonoBehaviour
             uimanager.showPlanet(selectedAstronomicalObject, true);
         
         uimanager.displayTime(tick);
+        uimanager.date = uimanager.date.AddDays(1);
         tick++;
     }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 public class UIManager : MonoBehaviour
 {
     
@@ -69,8 +70,10 @@ public class UIManager : MonoBehaviour
 
 //Will later be formated like 2030-03-04 for example
     public Text timeUI;
+    public DateTime date = new DateTime(2030, 1, 1);
     public void displayTime(int ticks)
     {
-        timeUI.text = "Days passed: " + ticks.ToString();
+        timeUI.text = date.ToString("yyyy/MM/dd") ; //ticks.ToString();
     }
+
 }
