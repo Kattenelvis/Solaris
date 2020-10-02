@@ -8,7 +8,8 @@ public class CameraControlls : MonoBehaviour
     public float panSenitivity;
     public float zoomSensitivity;
     public Vector3 lastClickedCoordinate;
-    void Update()
+
+    public void cameraControlls()
     {
         Zoom();
         //Moves the ship to it's position. 

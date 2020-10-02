@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Handles game logic. Make sure to keep logic seperated from graphics.
+//THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() AND START() FUNCTION.
 class Main : MonoBehaviour
 {
     IAstronomicalObject Earth = new AstronomicalObject();
@@ -12,24 +12,37 @@ class Main : MonoBehaviour
     Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
     [SerializeField]
     CameraControlls cameraControlls;
+    Resource hydrocarbons = new Resource("hydrocarbons");
+    Building refinery = new Building("Refinery");
+    UIManager uimanager; 
     void Start()
     {
-        Earth.regions = new List<Region>();
-        Earth.regions.Add(new Region("The West", Player));
-        Earth.regions.Add(new Region("The East", Enemy));
-        Moon.regions = new List<Region>();
-        Moon.regions.Add(new Region("The Forward Side", UnclaimedLand));
-        Moon.regions.Add(new Region("The Back Side", UnclaimedLand));
+        uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        Earth.regions = new List<IRegion>();
+        IRegion europe = new Region("Europe", Player);
+        IRegion asia = new Region("Asia", Enemy);
+        Earth.regions.Add(asia);
+        Earth.regions.Add(europe);
+        Moon.regions = new List<IRegion>();
+        IRegion moonFront = new Region("The Front Side", UnclaimedLand);
+        IRegion moonBack = new Region("The Back Side", UnclaimedLand);
+        Moon.regions.Add(moonBack);
+        Moon.regions.Add(moonFront);
+
     }
 
-    //a tick is the real-time equivalent of a turn. 
+    //a tick is the real-time game equivalent of a turn. 
     int tick;
     void newTick()
     {
         //Updates the UI every tick
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
         if (selectedAstronomicalObject != null)
-            GameObject.Find("Canvas").GetComponent<UIManager>().showPlanet(selectedAstronomicalObject, true);
+            uimanager.showPlanet(selectedAstronomicalObject, true);
+        
+        uimanager.displayTime(tick);
+        uimanager.date = uimanager.date.AddDays(1);
         tick++;
     }
 
@@ -40,6 +53,7 @@ class Main : MonoBehaviour
     [SerializeField]
     public int gameSpeed;
     int i = 0;
+    //THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() FUNCTION.
     void Update()
     {
         /*the increment (increased by one every frame) modulo the difference between
@@ -54,5 +68,8 @@ class Main : MonoBehaviour
         {
             i++;
         }
+
+        //Controls
+        cameraControlls.cameraControlls();
     }
 }
