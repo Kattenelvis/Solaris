@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 public class Region : IRegion
 {
     public Country owner {get; set;}
@@ -10,7 +11,8 @@ public class Region : IRegion
     {
         this.name = name;
         this.owner = owner;
-        this.refineries = 10;
+       
+        this.refineries = 10 + new Random().Next(1,40 + Convert.ToInt32(name[0]));
         this.fuel = 1000;
         this.hydrocarbons = 3125;
     }
