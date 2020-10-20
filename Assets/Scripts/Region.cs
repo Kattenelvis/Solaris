@@ -13,8 +13,8 @@ public class Region : IRegion
         this.owner = owner;
        
         this.refineries = 10 + new Random().Next(1,40 + Convert.ToInt32(name[0]));
-        this.fuel = 1000;
-        this.hydrocarbons = 3125;
+        this.fuel = 1000 + new Random().Next(1,40 + Convert.ToInt32(name[0]));
+        this.hydrocarbons = 3125 + new Random().Next(1,40 + Convert.ToInt32(name[0]));
     }
 
     
