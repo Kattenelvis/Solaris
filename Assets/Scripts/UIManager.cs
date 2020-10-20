@@ -32,6 +32,25 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         yield return null;
     }
+
+    [SerializeField] GameObject button;
+    [SerializeField] GameObject planetUI;
+    [SerializeField] GameObject regionalUI;
+    public void displayPlanet(List<IRegion> regions)
+    {
+        int i = 0;
+        foreach (IRegion region in regions)
+        {
+            GameObject regionButton = Instantiate(button, new Vector3(button.GetComponent<RectTransform>().rect.width*2, 400 - 2*button.GetComponent<RectTransform>().rect.height * i, 0), Quaternion.identity, planetUI.transform);
+            regionButton.GetComponentInChildren<Text>().text = region.name;
+            regionButton.GetComponent<Button>().onClick.AddListener(delegate {selectRegionButton(region);}); 
+            i++;
+        }
+    }
+    public void selectRegionButton(IRegion region)
+    {
+        Debug.Log(region.name);
+    }
     public GameObject textBox;
     public GameObject regionUI;
     public void displayRegionalData(List<float> displayableStatistics, List<string> statisticsNames, string regionName)
@@ -48,8 +67,10 @@ public class UIManager : MonoBehaviour
         regiUIMainText.text = regionName;
     }
 
+
+
     //Temporary for testing displayPlanetaryData
-    private void Start() {
+    /*private void Start() {
         AstronomicalObject ast = new AstronomicalObject();
         ast.regions.Add(new Region("Asia", new Country(Country.controlledBy.NOONE)));
         List<float> statistics = new List<float>{
@@ -63,17 +84,15 @@ public class UIManager : MonoBehaviour
             "fuel",
             "refineries",
             "hydrocarbons",
-
         };
         displayRegionalData(statistics, statisticsNames, ast.regions[0].name);
-    }
+    }*/
 
-//Will later be formated like 2030-03-04 for example
     public Text timeUI;
     public DateTime date = new DateTime(2030, 1, 1);
     public void displayTime(int ticks)
     {
-        timeUI.text = date.ToString("yyyy/MM/dd") ; //ticks.ToString();
+        timeUI.text = date.ToString("yyyy-MM-dd") ; //ticks.ToString();
     }
 
 }

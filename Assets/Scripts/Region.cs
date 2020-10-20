@@ -6,13 +6,13 @@ public class Region : IRegion
     public int refineries {get; set;}
     public int fuel {get; set;}
     public string name {get; set;}
-    public Region(string _name, Country _owner)
+    public Region(string name, Country owner)
     {
-        name = _name;
-        owner = _owner;
-        refineries = 10;
-        fuel = 1000;
-        hydrocarbons = 3125;
+        this.name = name;
+        this.owner = owner;
+        this.refineries = 10;
+        this.fuel = 1000;
+        this.hydrocarbons = 3125;
     }
 
     

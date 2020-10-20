@@ -15,21 +15,25 @@ class Main : MonoBehaviour
     Resource hydrocarbons = new Resource("hydrocarbons");
     Building refinery = new Building("Refinery");
     UIManager uimanager; 
+    
+    //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
     void Start()
     {
         uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
-        Earth.regions = new List<IRegion>();
-        IRegion europe = new Region("Europe", Player);
-        IRegion asia = new Region("Asia", Enemy);
-        Earth.regions.Add(asia);
-        Earth.regions.Add(europe);
-        Moon.regions = new List<IRegion>();
-        IRegion moonFront = new Region("The Front Side", UnclaimedLand);
-        IRegion moonBack = new Region("The Back Side", UnclaimedLand);
-        Moon.regions.Add(moonBack);
-        Moon.regions.Add(moonFront);
+        //Move this to a text file later for mod compatability (more regions mod e.t.c)
+        Earth.regions = new List<IRegion>{
+            new Region("Europe", Player),
+            new Region("China", Enemy),
+            new Region("Russia", Enemy),
+            new Region("USA", Enemy),
+        };
+        Moon.regions = new List<IRegion>{
+            new Region("The Front Side", UnclaimedLand),
+            new Region("The Back Side", UnclaimedLand)
+        };
 
+        uimanager.displayPlanet(Earth.regions);
     }
 
     //a tick is the real-time game equivalent of a turn. 
@@ -45,8 +49,6 @@ class Main : MonoBehaviour
         uimanager.date = uimanager.date.AddDays(1);
         tick++;
     }
-
-
     const int maxSpeed = 100;
 
     [Range(0, maxSpeed)]
