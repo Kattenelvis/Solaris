@@ -33,7 +33,7 @@ class Main : MonoBehaviour
             new Region("The Back Side", UnclaimedLand)
         };
 
-        uimanager.displayPlanet(Earth.regions);
+        uimanager.displayPlanetData(Earth.regions);
     }
 
     //a tick is the real-time game equivalent of a turn. 

@@ -35,8 +35,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject button;
     [SerializeField] GameObject planetUI;
-    [SerializeField] GameObject regionalUI;
-    public void displayPlanet(List<IRegion> regions)
+    public void displayPlanetData(List<IRegion> regions)
     {
         int i = 0;
         foreach (IRegion region in regions)
@@ -47,46 +46,38 @@ public class UIManager : MonoBehaviour
             i++;
         }
     }
+    //When you click a planet and region buttons show up, this gets called
     public void selectRegionButton(IRegion region)
     {
+        float[] statistics = new float[3];
+        statistics[0] = region.fuel;
+        statistics[1] = region.hydrocarbons;
+        statistics[2] = region.refineries;
         Debug.Log(region.name);
+        displayRegionalData(statistics, region.name);
     }
-    public GameObject textBox;
-    public GameObject regionUI;
-    public void displayRegionalData(List<float> displayableStatistics, List<string> statisticsNames, string regionName)
+    [SerializeField] GameObject textBox;
+    [SerializeField] GameObject regionUI;
+    GameObject currentlyActiveRegionUI;
+    public void displayRegionalData(float[] displayableStatistics, string regionName)
     {
+        //This is not good!!!!!
+        List<string> statisticsNames = new List<string>{"Fuel", "Hydrocarbons", "Refineries"};
+        
         GameObject regiUI = Instantiate(regionUI, new Vector3(500,100,100), transform.rotation, this.transform);
+        Destroy(currentlyActiveRegionUI);
+        currentlyActiveRegionUI = regiUI;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < displayableStatistics.Length; i++)
         {
-            GameObject textUIObject = Instantiate(textBox, new Vector3(500,20*(i-1),100), transform.rotation, regiUI.transform);
+            GameObject textUIObject = Instantiate(textBox, new Vector3(500,40*(i-1),100), transform.rotation, regiUI.transform);
             Text textUI = textUIObject.GetComponent<Text>();
             textUI.text = statisticsNames[i] +": " + displayableStatistics[i].ToString();
         }
         Text regiUIMainText = regiUI.GetComponentInChildren<Text>();
+
         regiUIMainText.text = regionName;
     }
-
-
-
-    //Temporary for testing displayPlanetaryData
-    /*private void Start() {
-        AstronomicalObject ast = new AstronomicalObject();
-        ast.regions.Add(new Region("Asia", new Country(Country.controlledBy.NOONE)));
-        List<float> statistics = new List<float>{
-            ast.regions[0].fuel,
-            ast.regions[0].refineries,
-            ast.regions[0].hydrocarbons,
-
-        };
-
-        List<string> statisticsNames = new List<string>{
-            "fuel",
-            "refineries",
-            "hydrocarbons",
-        };
-        displayRegionalData(statistics, statisticsNames, ast.regions[0].name);
-    }*/
 
     public Text timeUI;
     public DateTime date = new DateTime(2030, 1, 1);
