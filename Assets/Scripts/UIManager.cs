@@ -11,33 +11,17 @@ public class UIManager : MonoBehaviour
     }
     [SerializeField] GameObject planetUI;
     GameObject currentPlanetUI;
-    public void showPlanet(AstronomicalObject astronomicalObject, bool show)
-    {
-        /*if (astronomicalObject != null)
-        {
-            Transform UIelement = this.transform.Find("Astronomical Objects").Find(astronomicalObject.name);
-            StartCoroutine(bugfixer(UIelement, show));
-        }*/
-        
+    public void showPlanet(AstronomicalObject astronomicalObject)
+    {  
         Destroy(currentPlanetUI);
-        GameObject planetui =  Instantiate(planetUI, new Vector3(100,100,100), Quaternion.identity, this.transform);
-        currentPlanetUI = planetui;
-        displayPlanetData(astronomicalObject.regions);
+        if (astronomicalObject != null)
+        {
+            GameObject planetui =  Instantiate(planetUI, new Vector3(100,100,100), Quaternion.identity, this.transform);
+            currentPlanetUI = planetui;
+            displayPlanetData(astronomicalObject.regions);
+        }
     }
-
-    //A bug, likely caused by unity, is preventing the regions from showing up when you click a planet. 
-    //Only the background shows. Stupid ass ugly fix.
-    IEnumerator bugfixer(Transform UIelement, bool show)
-    {
-        UIelement.gameObject.SetActive(show);
-        yield return new WaitForSeconds(0.1f);
-        UIelement.gameObject.SetActive(show);
-        yield return new WaitForSeconds(0.1f);
-        yield return null;
-    }
-
     [SerializeField] GameObject button;
-
     public void displayPlanetData(List<IRegion> regions)
     {
         int i = 0;
@@ -72,12 +56,15 @@ public class UIManager : MonoBehaviour
         List<string> statisticsNames = new List<string>{"Fuel", "Hydrocarbons", "Refineries"};
         
         GameObject regiUI = Instantiate(regionUI, new Vector3(500,100,100), transform.rotation, this.transform);
+        //This might look like an uneccessary step but it prevents the UI from looking weird
+        regiUI.transform.parent = currentPlanetUI.transform;
+
         Destroy(currentlyActiveRegionUI);
         currentlyActiveRegionUI = regiUI;
 
         for (int i = 0; i < displayableStatistics.Length; i++)
         {
-            GameObject textUIObject = Instantiate(textBox, new Vector3(500,50*(i-1),100), transform.rotation, regiUI.transform);
+            GameObject textUIObject = Instantiate(textBox, new Vector3(500,-10*(i-1),100), transform.rotation, regiUI.transform);
             Text textUI = textUIObject.GetComponent<Text>();
             textUI.text = statisticsNames[i] +": " + displayableStatistics[i].ToString();
         }

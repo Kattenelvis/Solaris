@@ -27,8 +27,8 @@ class Main : MonoBehaviour
     {
         //Updates the UI every tick
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
-        if (selectedAstronomicalObject != null)
-            uimanager.showPlanet(selectedAstronomicalObject, true);
+        /*if (selectedAstronomicalObject != null)
+            uimanager.showPlanet(selectedAstronomicalObject, true);*/
         
         uimanager.displayTime(tick);
         uimanager.date = uimanager.date.AddDays(1);

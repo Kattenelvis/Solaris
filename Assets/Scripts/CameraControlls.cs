@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class CameraControlls : MonoBehaviour
 {
     public Camera mainCamera;
@@ -96,17 +96,17 @@ public class CameraControlls : MonoBehaviour
         {
             //uiManager.showPlanet(selectedAstronomicalObject, false);
             selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
-            uiManager.showPlanet(selectedAstronomicalObject, true);
+            uiManager.showPlanet(selectedAstronomicalObject);
         }
     }
     private void SelectPlane(RaycastHit hit)
     {
         if (Input.GetMouseButtonDown(1))
             lastClickedCoordinate = hit.point;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            //uiManager.showPlanet(selectedAstronomicalObject, false);
-            //selectedAstronomicalObject = null;
+            selectedAstronomicalObject = null;
+            uiManager.showPlanet(selectedAstronomicalObject);
         }
     }
 
