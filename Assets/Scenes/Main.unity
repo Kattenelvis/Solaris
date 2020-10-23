@@ -291,7 +291,7 @@ Transform:
   m_LocalScale: {x: 40.548344, y: 40.548344, z: 40.548344}
   m_Children: []
   m_Father: {fileID: 1625890122}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &143010235
 MonoBehaviour:
@@ -967,6 +967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetEarth: {fileID: 8695593674858195661, guid: 60b0c4c1b0ae6ae4088bcfac01df1aae,
     type: 3}
+  earthsMoon: {fileID: 1630827272993037526, guid: f4c7a645fc6a0994f8859e3b75780a0b,
+    type: 3}
 --- !u!114 &963697331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,114 +1109,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052654737}
   m_CullTransparentMesh: 0
---- !u!1 &1057170656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1057170660}
-  - component: {fileID: 1057170659}
-  - component: {fileID: 1057170658}
-  - component: {fileID: 1057170657}
-  - component: {fileID: 1057170661}
-  m_Layer: 0
-  m_Name: Moon
-  m_TagString: Astronomical_Object
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!135 &1057170657
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057170656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1057170658
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057170656}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 4294967295
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1057170659
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057170656}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1057170660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057170656}
-  m_LocalRotation: {x: -0, y: -0.13459985, z: -0, w: 0.99090004}
-  m_LocalPosition: {x: 71.3, y: 0, z: 38.9}
-  m_LocalScale: {x: 2.3141782, y: 2.3141782, z: 2.3141782}
-  m_Children: []
-  m_Father: {fileID: 1625890122}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -15.471, z: 0}
---- !u!114 &1057170661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057170656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe77455d3690fc419029a0e090e45df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!850595691 &1095167525
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1776,7 +1670,6 @@ Transform:
   m_LocalPosition: {x: -15.400126, y: -11.248487, z: 18.763836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1057170660}
   - {fileID: 143010234}
   m_Father: {fileID: 0}
   m_RootOrder: 6
