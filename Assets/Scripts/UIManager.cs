@@ -41,19 +41,19 @@ public class UIManager : MonoBehaviour
     //When you click a planet and region buttons show up, this gets called
     public void selectRegionButton(IRegion region)
     {
-        float[] statistics = new float[3];
-        statistics[0] = region.fuel;
-        statistics[1] = region.hydrocarbons;
-        statistics[2] = region.refineries;
-        displayRegionalData(statistics, region.name);
+        float[] regionalData = new float[4];
+        regionalData[0] = region.fuel;
+        regionalData[1] = region.hydrocarbons;
+        regionalData[2] = region.refineries;
+        regionalData[3] = (int) region.owner.controller;
+        displayRegionalData(regionalData, region.name);
     }
     [SerializeField] GameObject textBox;
     [SerializeField] GameObject regionUI;
     GameObject currentlyActiveRegionUI;
-    public void displayRegionalData(float[] displayableStatistics, string regionName)
+    public void displayRegionalData(float[] regionalData, string regionName)
     {
-        //This is not good!!!!!
-        List<string> statisticsNames = new List<string>{"Fuel", "Hydrocarbons", "Refineries"};
+        List<string> dataNames = new List<string>{"Fuel", "Hydrocarbons", "Refineries", "Controller"};
         
         GameObject regiUI = Instantiate(regionUI, new Vector3(500,100,100), transform.rotation, this.transform);
         //This might look like an uneccessary step but it prevents the UI from looking weird
@@ -62,15 +62,24 @@ public class UIManager : MonoBehaviour
         Destroy(currentlyActiveRegionUI);
         currentlyActiveRegionUI = regiUI;
 
-        for (int i = 0; i < displayableStatistics.Length; i++)
+        for (int i = 0; i < regionalData.Length; i++)
         {
-            GameObject textUIObject = Instantiate(textBox, new Vector3(500,-10*(i-1),100), transform.rotation, regiUI.transform);
-            Text textUI = textUIObject.GetComponent<Text>();
-            textUI.text = statisticsNames[i] +": " + displayableStatistics[i].ToString();
+            GenerateStatisticsText(dataNames[i], regiUI, i, regionalData[i]);
         }
-        Text regiUIMainText = regiUI.GetComponentInChildren<Text>();
 
+        Text regiUIMainText = regiUI.GetComponentInChildren<Text>();
         regiUIMainText.text = regionName;
+
+    }
+
+    void GenerateStatisticsText(string dataName, GameObject regiUI, int i, float data)
+    {
+        GameObject textUIObject = Instantiate(textBox, new Vector3(500, -10 * (i - 1), 100), transform.rotation, regiUI.transform);
+        Text textUI = textUIObject.GetComponent<Text>();
+        if(dataName == "Controller")
+            textUI.text = dataName + ": " + ((Country.controlledBy) data).ToString();
+        else
+            textUI.text = dataName + ": " + data.ToString();
     }
 
     //Displays the clock in the top right corner

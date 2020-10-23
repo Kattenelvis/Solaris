@@ -6,7 +6,7 @@ public class Country
         AI,
         NOONE
     }
-    controlledBy controller;
+    public controlledBy controller;
     public int totalFuel;
     public Country(controlledBy _controller)
     {
