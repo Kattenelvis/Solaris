@@ -5,24 +5,28 @@ using UnityEngine.UI;
 using System;
 public class UIManager : MonoBehaviour
 {
-    
-    [SerializeField]
-    private GameObject[] planetUIs;
     public void updateUI()
     {
-        //showPlanet("Earth");
+        //Updates the UI every tick
     }
-
+    [SerializeField] GameObject planetUI;
+    GameObject currentPlanetUI;
     public void showPlanet(AstronomicalObject astronomicalObject, bool show)
     {
-        if (astronomicalObject != null)
+        /*if (astronomicalObject != null)
         {
             Transform UIelement = this.transform.Find("Astronomical Objects").Find(astronomicalObject.name);
             StartCoroutine(bugfixer(UIelement, show));
-        }
+        }*/
+        
+        Destroy(currentPlanetUI);
+        GameObject planetui =  Instantiate(planetUI, new Vector3(100,100,100), Quaternion.identity, this.transform);
+        currentPlanetUI = planetui;
+        print(astronomicalObject.Name);
+        displayPlanetData(astronomicalObject.regions);
     }
 
-    //A bug, most likely caused by unity, is preventing the regions from showing up when you click a planet. 
+    //A bug, likely caused by unity, is preventing the regions from showing up when you click a planet. 
     //Only the background shows. Stupid ass ugly fix.
     IEnumerator bugfixer(Transform UIelement, bool show)
     {
@@ -34,13 +38,18 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] GameObject button;
-    [SerializeField] GameObject planetUI;
+
     public void displayPlanetData(List<IRegion> regions)
     {
         int i = 0;
         foreach (IRegion region in regions)
         {
-            GameObject regionButton = Instantiate(button, new Vector3(button.GetComponent<RectTransform>().rect.width*2, 400 - 2*button.GetComponent<RectTransform>().rect.height * i, 0), Quaternion.identity, planetUI.transform);
+            GameObject regionButton = Instantiate(button,
+                new Vector3(button.GetComponent<RectTransform>().rect.width*2, 
+                400 - 2*button.GetComponent<RectTransform>().rect.height * i, 0), 
+                Quaternion.identity, 
+                currentPlanetUI.transform
+            );
             regionButton.GetComponentInChildren<Text>().text = region.name;
             regionButton.GetComponent<Button>().onClick.AddListener(delegate {selectRegionButton(region);}); 
             i++;
@@ -53,7 +62,6 @@ public class UIManager : MonoBehaviour
         statistics[0] = region.fuel;
         statistics[1] = region.hydrocarbons;
         statistics[2] = region.refineries;
-        Debug.Log(region.name);
         displayRegionalData(statistics, region.name);
     }
     [SerializeField] GameObject textBox;
@@ -79,11 +87,12 @@ public class UIManager : MonoBehaviour
         regiUIMainText.text = regionName;
     }
 
+    //Displays the clock in the top right corner
     public Text timeUI;
     public DateTime date = new DateTime(2030, 1, 1);
     public void displayTime(int ticks)
     {
         timeUI.text = date.ToString("yyyy-MM-dd") ; //ticks.ToString();
     }
-
+    
 }

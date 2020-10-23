@@ -5,8 +5,9 @@ using UnityEngine;
 //THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() AND START() FUNCTION.
 class Main : MonoBehaviour
 {
-    IAstronomicalObject Earth = new AstronomicalObject();
+    IAstronomicalObject EarthData = new AstronomicalObject();
     IAstronomicalObject Moon = new AstronomicalObject();
+    [SerializeField] GameObject planetEarth;
     Country Player = new Country(Country.controlledBy.HUMAN);
     Country Enemy = new Country(Country.controlledBy.AI);
     Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
@@ -21,19 +22,28 @@ class Main : MonoBehaviour
     {
         uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
+
+        GameObject inGameEarth = Instantiate(planetEarth, new Vector3(46,0,15), Quaternion.identity);
+        inGameEarth.AddComponent<AstronomicalObject>();
+        IAstronomicalObject EarthData = inGameEarth.GetComponent<AstronomicalObject>();
+        
         //Move this to a text file later for mod compatability (more regions mod e.t.c)
-        Earth.regions = new List<IRegion>{
+        EarthData.regions = new List<IRegion>{
             new Region("Europe", Player),
             new Region("China", Enemy),
             new Region("Russia", Enemy),
             new Region("USA", Enemy),
         };
+        EarthData.Name = "Earth";
+        
         Moon.regions = new List<IRegion>{
             new Region("The Front Side", UnclaimedLand),
             new Region("The Back Side", UnclaimedLand)
         };
 
-        uimanager.displayPlanetData(Earth.regions);
+        
+        //inGameEarthData = EarthData;
+        //uimanager.displayPlanetData(Earth.regions);
     }
 
     //a tick is the real-time game equivalent of a turn. 
