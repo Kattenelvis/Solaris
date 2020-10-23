@@ -105,8 +105,8 @@ public class CameraControlls : MonoBehaviour
             lastClickedCoordinate = hit.point;
         if (Input.GetMouseButtonDown(0))
         {
-            uiManager.showPlanet(selectedAstronomicalObject, false);
-            selectedAstronomicalObject = null;
+            //uiManager.showPlanet(selectedAstronomicalObject, false);
+            //selectedAstronomicalObject = null;
         }
     }
 
