@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
         Destroy(currentPlanetUI);
         GameObject planetui =  Instantiate(planetUI, new Vector3(100,100,100), Quaternion.identity, this.transform);
         currentPlanetUI = planetui;
-        print(astronomicalObject.Name);
         displayPlanetData(astronomicalObject.regions);
     }
 
@@ -78,7 +77,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < displayableStatistics.Length; i++)
         {
-            GameObject textUIObject = Instantiate(textBox, new Vector3(500,40*(i-1),100), transform.rotation, regiUI.transform);
+            GameObject textUIObject = Instantiate(textBox, new Vector3(500,50*(i-1),100), transform.rotation, regiUI.transform);
             Text textUI = textUIObject.GetComponent<Text>();
             textUI.text = statisticsNames[i] +": " + displayableStatistics[i].ToString();
         }

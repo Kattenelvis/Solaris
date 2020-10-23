@@ -305,7 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe77455d3690fc419029a0e090e45df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
 --- !u!1 &147929346
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963697329}
   - component: {fileID: 963697331}
+  - component: {fileID: 963697330}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -951,6 +951,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963697330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963697328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed27f39fcacfa24cbd6d591fb26519b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetEarth: {fileID: 8695593674858195661, guid: 60b0c4c1b0ae6ae4088bcfac01df1aae,
+    type: 3}
 --- !u!114 &963697331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,8 +977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376bbe4314e455d41b2e1172d84d2274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetEarth: {fileID: 8695593674858195661, guid: 60b0c4c1b0ae6ae4088bcfac01df1aae,
-    type: 3}
   cameraControlls: {fileID: 1128995554}
   gameSpeed: 1
 --- !u!1 &965366687
@@ -1177,7 +1189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe77455d3690fc419029a0e090e45df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
 --- !u!850595691 &1095167525
 LightingSettings:
   m_ObjectHideFlags: 0
