@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3324488042
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6ca8a413e339f402accfa0640b5a3cb4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c92feb8daf166311b3e47737bd87795
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Delight/Extensions/Examples/Assets/Bundle1/Frame2.psd
+- Assets/Delight/Extensions/Examples/Assets/Bundle1/Frame1.psd
+Dependencies: []

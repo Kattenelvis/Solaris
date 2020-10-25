@@ -1,0 +1,26 @@
+<SceneObjectView xmlns="Delight" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Delight ../Delight.xsd"
+           BasedOn="View" GameObject="t:GameObject" EnableScriptEvents="t:bool" IgnoreObject="t:bool"
+           IsActive="t:bool = True"
+           BeginDrag="t:Action"
+           Cancel="t:Action"
+           Click="t:Action"
+           Deselect="t:Action"
+           Drag="t:Action"
+           Drop="t:Action"
+           EndDrag="t:Action"
+           InitializePotentialDrag="t:Action"
+           Move="t:Action"
+           MouseDown="t:Action"
+           MouseEnter="t:Action"
+           MouseExit="t:Action"
+           MouseUp="t:Action"
+           Scroll="t:Action"
+           Select="t:Action"
+           Submit="t:Action"
+           UpdateSelected="t:Action">
+</SceneObjectView>
+
+<!-- 
+IsActive: Boolean indicating if the game object is active.
+IgnoreObject: Boolean indicating if the scene object should be ignored and not be part of the scene object hierarchy.
+-->

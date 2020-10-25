@@ -1,0 +1,22 @@
+﻿## Configuration file. Available options:
+##    ServerUri - URI that points to where remote asset bundles are stored
+##    BuildTargets - controls which model data is included in build
+##    ContentFolders - specifies where Delight content (views, models, etc) resides (besides the default folders)
+##    DefaultContentFolder - specifies default content folder where new content is placed when created by the Delight Designer
+##    StreamedBundles - specifies which bundles (by name) should be streamed locally rather than from remote URI
+##    ServerUriLocator - name of class that locates server URI based on bundle name
+##    UseSimulatedUriInEditor - set to true/false indicating if a simulated server URI should be used in the editor
+##    Namespaces - Namespaces to be included in the generated code and prioritized when infering types
+##    DelightPath - Delight framework root path
+##    DefaultBasedOn - Default view all views are based on if the BasedOn attribute isn't specified (UIView if not specified)
+##    BaseView - Custom view all views will inherit from.
+##    AssetBundleVersion - Set to non-zero integer to enable caching of asset bundles. Increment to invalidate bundle caches and force new updates
+##    Modules - List of modules to activate. E.g. To enable TextMesh Pro, download the latest package with the package manager and add TextMeshPro to config file.
+## Example configuration, remove "#" to uncomment configuration options:
+
+ServerUri: http://example.com
+UseSimulatedUriInEditor: true
+BuildTargets: Dev
+AssetBundleVersion: 1
+ContentFolders:
+Modules: 

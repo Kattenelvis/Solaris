@@ -1,0 +1,50 @@
+<StandardStyle>
+  <Button BackgroundColor="#7d7d7d" FontColor="#ffffff" FontStyle="Normal"
+          Highlighted-BackgroundColor="Gray90" Pressed-BackgroundColor="#ef706a"
+          Highlighted-FontColor="#000000" Pressed-FontColor="#ffffff" Height="30" FontSize="16"
+          Disabled-FontStyle="Italic" Disabled-FontColor="Gray80" Disabled-BackgroundColor="#7d7d7d"
+          StateAnimations="FadeInOutHighlighted" />
+  <Button Style="ComboBoxButton" />
+  <Label FontSize="16" />
+  <ListItem Breadth="30" BackgroundColor="Clear" Selected-BackgroundColor="#ef706a"
+            Highlighted-BackgroundColor="#d5d4d4" Pressed-BackgroundColor="#ef706a"
+            Alternate-BackgroundColor="Gray95" />
+  <ListItem Style="UnselectableListItem" Breadth="30" BackgroundColor="Clear" Selected-BackgroundColor="Clear"
+            Highlighted-BackgroundColor="Clear" Pressed-BackgroundColor="Clear"
+            Alternate-BackgroundColor="Clear" />
+  <InputField BackgroundColor="White" FontSize="16" FontColor="#000000"
+              Width="400" Height="30" SelectionColor="#ef706a" TextMargin="5,7,5,0" />
+  <Slider SliderFillColor="#ef706a" SliderHandleColor="#f8f6f3" BackgroundColor="#626262" Breadth="12" SliderHandleWidth="11" SliderHandleHeight="22" />
+
+  <ComboBox Height="32" Width="200" ButtonMargin="0,2,0,0" ButtonFontSize="16" ButtonFontColor="#000000"
+            ButtonTextAlignment="Left" ButtonLabelMargin="10,0,10,0"
+            Pressed-ButtonFontColor="#000000" Highlighted-ButtonFontColor="#000000" ButtonBackgroundSprite="ComboBoxButton"
+            ButtonBackgroundColor="#ffffff" Pressed-ButtonBackgroundSprite="ComboBoxButtonPressed" Highlighted-ButtonBackgroundColor="#dddddd" Pressed-ButtonBackgroundColor="#eeeeee"
+            BackgroundColor="#ffffff" />
+  <ComboBoxItem Breadth="30" BackgroundColor="White" Selected-BackgroundColor="#ef706a" Highlighted-BackgroundColor="Gray90" Pressed-BackgroundColor="#ef706a" />
+
+  <CheckBox CheckBoxSprite="CheckBox" Checked-CheckBoxSprite="CheckBoxPressed" Height="20" CheckBoxWidth="20" CheckBoxHeight="20"
+            CheckBoxColor="#ffffff" FontSize="16" FontStyle="Normal" FontColor="#ffffff" Spacing="10"
+            Disabled-FontStyle="Italic" Disabled-FontColor="Gray80" />
+  <RadioButton RadioButtonSprite="RadioButton" Checked-RadioButtonSprite="RadioButtonPressed" RadioButtonWidth="17" RadioButtonHeight="17" Height="20"
+               RadioButtonColor="#ffffff" RadioButtonOffset="0,1,0,0" FontSize="16" FontColor="#ffffff" FontStyle="Normal" Spacing="10px"
+               Disabled-FontStyle="Italic" Disabled-FontColor="Gray80" />
+
+  <SelectionIndicator BackgroundSprite="Selection" />
+  <NavigationButton Width="30" Height="40" BackgroundColor="#bbbbbb" Highlighted-BackgroundColor="#dddddd" Pressed-BackgroundColor="#ffffff"/>
+
+  <Expander Sprite="ExpanderArrowRight" Expanded-Sprite="ExpanderArrowDown" />
+
+  <StateAnimations Id="FadeInOutHighlighted">
+    <StateAnimation From="Any" To="Highlighted">
+      <Animate Property="BackgroundColor" Duration="0.05" />
+      <Animate Property="FontColor" Duration="0.05" />
+    </StateAnimation>
+
+    <StateAnimation From="Highlighted" To="Default">
+      <Animate Property="BackgroundColor" Duration="0.5" />
+      <Animate Property="FontColor" Duration="0.5" />
+    </StateAnimation>
+  </StateAnimations>
+
+</StandardStyle> 

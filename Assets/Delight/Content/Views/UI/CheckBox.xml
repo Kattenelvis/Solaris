@@ -1,0 +1,15 @@
+<CheckBox xmlns="Delight" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Delight ../../Delight.xsd" BasedOn="UIImageView" IsLocked="True"
+          IsChecked="t:bool" IsDisabled="t:bool"
+          Spacing="t:ElementSize = 10" 
+          m.CheckBoxImageView="CheckBox"
+          m.CheckBoxLabel=""
+          Height="40"
+          Click="CheckBoxClick"
+          defaultBinding.IsChecked="TwoWay">
+  <Group Id="CheckBoxGroup" Orientation="Horizontal" Spacing="{Spacing}">
+    <Image Id="CheckBoxImageView" Width="40" Height="40" />
+    <Label Id="CheckBoxLabel" AutoSize="Width" Height="100%" />
+  </Group> 
+</CheckBox>
+
+ 

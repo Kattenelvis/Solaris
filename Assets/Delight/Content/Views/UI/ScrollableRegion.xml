@@ -1,0 +1,28 @@
+<ScrollableRegion xmlns="Delight" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Delight ../../Delight.xsd" BasedOn="UICanvas" IsLocked="True"
+                  MaskContent="t:bool = True"
+                  Mask="t:UnityEngine.UI.RectMask2D, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+                  ImageComponent="t:UnityEngine.UI.Image, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+                  Drag="OnDrag" BeginDrag="OnBeginDrag" InitializePotentialDrag="OnInitializePotentialDrag" EndDrag="OnEndDrag" Scroll="OnScroll"
+                  HasInertia="t:bool = True" DecelerationRate="t:float = 0.135" Elasticity="t:float = 0.1"
+                  CanScrollHorizontally="t:bool = True"
+                  CanScrollVertically="t:bool = True"
+                  EnableScriptEvents="True"
+                  ContentAlignment="t:ElementAlignment"
+                  AutoSizeContentRegion="t:bool = True"
+                  ScrollBounds="t:ScrollBounds = Elastic"
+                  DisableInteractionScrollDelta="t:float"
+                  ScrollSensitivity="t:float = 60"
+                  i.ScrollbarVisibility="HorizontalScrollbarVisibility, VerticalScrollbarVisibility"
+                  HorizontalScrollbarVisibility="t:ScrollbarVisibilityMode = Auto"
+                  VerticalScrollbarVisibility="t:ScrollbarVisibilityMode = Auto"
+                  DisableMouseWheel="t:bool"
+                  ContentScrolled="t:Action"
+                  UnblockDragEventsInChildren="t:bool = True"
+                  ScrollEnabled="t:bool = True"                  
+                  m.HorizontalScrollbar="HorizontalScrollbar"
+                  m.VerticalScrollbar="VerticalScrollbar"> 
+  <Region Id="ContentRegion" BubbleNotifyChildLayoutChanged="True" IsContentContainer="True" Alignment="{ContentAlignment}">
+  </Region>
+  <Scrollbar Id="HorizontalScrollbar" Orientation="Horizontal" />
+  <Scrollbar Id="VerticalScrollbar" Orientation="Vertical" />
+</ScrollableRegion>

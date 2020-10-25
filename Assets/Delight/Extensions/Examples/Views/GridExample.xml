@@ -1,0 +1,17 @@
+<GridExample xmlns="Delight" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Delight ../Delight.xsd" BasedOn="LayoutRoot">
+  <Grid Rows="200[20],*[20],200[20]" Columns="200[20],*[20],200[20]" Width="600" Height="600"> 
+    <Region Id="Cell00" Grid.Cell="0,0" BackgroundColor="#5389e0" />
+    <Region Id="Cell01" Grid.Cell="0,1" BackgroundColor="#e375f9" />
+    <Region Id="Cell02" Grid.Cell="0,2" BackgroundColor="#74f9d5" />
+   
+    <Region Id="Cell10" Grid.Cell="1,0" BackgroundColor="#f9c674" />
+    <Region Id="Cell11" Grid.Cell="1,1" BackgroundColor="#fced2d" />
+    <Region Id="Cell12" Grid.Cell="1,2" BackgroundColor="#2cf72f" />
+
+    <Region Id="Cell20" Grid.Cell="2,0" BackgroundColor="#ef552b" />
+    <Region Id="Cell21" Grid.Cell="2,1" BackgroundColor="#0087ff" />
+    <Region Id="Cell22" Grid.Cell="2,2" BackgroundColor="#8730ad" />
+
+    <GridSplitter Thickness="5" InteractionThickness="20" SplitterColor="#333333" BePushy="False" SetSizeOnDragEnded="False" />
+  </Grid>
+</GridExample> 
