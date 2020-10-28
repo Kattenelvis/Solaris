@@ -14,7 +14,4 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Delight/Extensions/Examples/Assets/Bundle2/Frame4.psd
-- Assets/Delight/Extensions/Examples/Assets/Bundle2/Frame3.psd
-- Assets/Delight/Extensions/Examples/Assets/Bundle2/BigSprite.psd
 Dependencies: []
