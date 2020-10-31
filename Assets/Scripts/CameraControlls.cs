@@ -76,7 +76,6 @@ public class CameraControlls : MonoBehaviour
         }   
     }
 
-
     void Select()
     {
         changeCursor(highlightCursor, new Vector2(40, 40));
@@ -103,6 +102,7 @@ public class CameraControlls : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
             lastClickedCoordinate = hit.point;
+        //Makes it so when you click UI elements there will be no selection
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             selectedAstronomicalObject = null;
