@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class CameraControlls : MonoBehaviour
 {
     public Camera mainCamera;
     public float panSenitivity;
     public float zoomSensitivity;
-    public Vector3 lastClickedCoordinate;
+    Vector3 lastClickedCoordinate;
 
     public void cameraControlls()
     {
@@ -37,12 +37,12 @@ public class CameraControlls : MonoBehaviour
         mainCamera.transform.Translate(new Vector3(0, 0, Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity));
     }
     private Transform selection;
-    public GameObject currentlySelectedGameObject;
+    GameObject currentlySelectedGameObject;
 
-    public Texture2D highlightCursor;
-    public Texture2D defaultCursor;
-    public AstronomicalObject selectedAstronomicalObject;
+    [SerializeField] Texture2D highlightCursor;
+    [SerializeField] Texture2D defaultCursor;
     [SerializeField] UIManager uiManager;
+    public AstronomicalObject selectedAstronomicalObject;
     void Selection()
     {
         //Returns objects to normal once they're no longer selected
@@ -61,38 +61,52 @@ public class CameraControlls : MonoBehaviour
             //Make sure this is not the backround plane that's used for co-ordinates  
             if (selection.gameObject.CompareTag("Selectable"))
             {
-                changeCursor(highlightCursor, new Vector2(40, 40));
-                currentlySelectedGameObject = selection.gameObject;
-                if (Input.GetMouseButtonDown(1))
-                {
-                    print(lastClickedCoordinate);
-                }
+                Select();
             }
             //If hovering mouse over a planet
             if (selection.gameObject.CompareTag("Astronomical_Object"))
             {
-                changeCursor(highlightCursor, new Vector2(40, 40));
-
-                //If clicked on planet/asteroid/moon e.t.c
-                if (Input.GetMouseButton(0))
-                {
-                    uiManager.showPlanet(selectedAstronomicalObject, false);
-                    selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
-                    uiManager.showPlanet(selectedAstronomicalObject, true);
-                }
+                SelectAstroObject();
 
             }
             if (selection.gameObject.CompareTag("Plane"))
             {
-                if (Input.GetMouseButtonDown(1))
-                    lastClickedCoordinate = hit.point;
-                if (Input.GetMouseButtonDown(0))
-                {
-                    uiManager.showPlanet(selectedAstronomicalObject, false);
-                    selectedAstronomicalObject = null;
-
-                }
+                SelectPlane(hit);
             }
+        }   
+    }
+
+    void Select()
+    {
+        changeCursor(highlightCursor, new Vector2(40, 40));
+        currentlySelectedGameObject = selection.gameObject;
+        if (Input.GetMouseButtonDown(1))
+        {
+            print(lastClickedCoordinate);
+        }
+    }
+
+    private void SelectAstroObject()
+    {
+        changeCursor(highlightCursor, new Vector2(40, 40));
+
+        //If clicked on planet/asteroid/moon e.t.c
+        if (Input.GetMouseButton(0))
+        {
+            //uiManager.showPlanet(selectedAstronomicalObject, false);
+            selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
+            uiManager.showPlanet(selectedAstronomicalObject);
+        }
+    }
+    private void SelectPlane(RaycastHit hit)
+    {
+        if (Input.GetMouseButtonDown(1))
+            lastClickedCoordinate = hit.point;
+        //Makes it so when you click UI elements there will be no selection
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            selectedAstronomicalObject = null;
+            uiManager.showPlanet(selectedAstronomicalObject);
         }
     }
 
@@ -104,7 +118,4 @@ public class CameraControlls : MonoBehaviour
     {
         Cursor.SetCursor(cursor, offset, CursorMode.ForceSoftware);
     }
-
-
-
 }

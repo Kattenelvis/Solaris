@@ -5,31 +5,20 @@ using UnityEngine;
 //THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() AND START() FUNCTION.
 class Main : MonoBehaviour
 {
-    IAstronomicalObject Earth = new AstronomicalObject();
-    IAstronomicalObject Moon = new AstronomicalObject();
-    Country Player = new Country(Country.controlledBy.HUMAN);
-    Country Enemy = new Country(Country.controlledBy.AI);
-    Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
+
     [SerializeField]
     CameraControlls cameraControlls;
-    Resource hydrocarbons = new Resource("hydrocarbons");
-    Building refinery = new Building("Refinery");
+
     UIManager uimanager; 
+    
+    //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
     void Start()
     {
         uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
-        Earth.regions = new List<IRegion>();
-        IRegion europe = new Region("Europe", Player);
-        IRegion asia = new Region("Asia", Enemy);
-        Earth.regions.Add(asia);
-        Earth.regions.Add(europe);
-        Moon.regions = new List<IRegion>();
-        IRegion moonFront = new Region("The Front Side", UnclaimedLand);
-        IRegion moonBack = new Region("The Back Side", UnclaimedLand);
-        Moon.regions.Add(moonBack);
-        Moon.regions.Add(moonFront);
-
+        SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
+        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem();
+        
     }
 
     //a tick is the real-time game equivalent of a turn. 
@@ -38,15 +27,13 @@ class Main : MonoBehaviour
     {
         //Updates the UI every tick
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
-        if (selectedAstronomicalObject != null)
-            uimanager.showPlanet(selectedAstronomicalObject, true);
+        /*if (selectedAstronomicalObject != null)
+            uimanager.showPlanet(selectedAstronomicalObject, true);*/
         
         uimanager.displayTime(tick);
         uimanager.date = uimanager.date.AddDays(1);
         tick++;
     }
-
-
     const int maxSpeed = 100;
 
     [Range(0, maxSpeed)]
