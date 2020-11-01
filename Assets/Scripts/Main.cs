@@ -9,13 +9,12 @@ class Main : MonoBehaviour
     [SerializeField]
     CameraControlls cameraControlls;
 
-    UIManager uimanager;
+    [SerializeField] UIManager uimanager;
     [SerializeField] UI ui;
 
     //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
     void Start()
     {
-        uimanager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
         IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem();

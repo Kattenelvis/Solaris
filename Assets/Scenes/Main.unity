@@ -980,6 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraControlls: {fileID: 1128995554}
+  uimanager: {fileID: 1394396984}
   ui: {fileID: 1116355471}
   gameSpeed: 1
 --- !u!1 &965366687

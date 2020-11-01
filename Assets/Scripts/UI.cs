@@ -8,40 +8,44 @@ public class UI : MonoBehaviour
     VisualElement planetScreen;
     int count;
     VisualElement rootVS;
+    Label planetName;
+    Button defaultPlanetButton;
+    VisualElement planetButtons;
     void OnEnable()
     {
         rootVS = GetComponent<UIDocument>().rootVisualElement;
 
-        //counterLabel = rootVS.Q<Label>("Tee");
-        //counterButton = rootVS.Q<Button>("Cool-Button");
+        planetName = rootVS.Q<Label>("planet-name");
+        defaultPlanetButton = rootVS.Q<Button>("planet-button");
+        planetButtons = rootVS.Q<VisualElement>("regions");
         planetScreen = rootVS.Q<VisualElement>("planet-screen");
-
-        //counterButton.RegisterCallback<ClickEvent>(ev => Increment());
     }
-
-    void Increment()
-    {
-        count++;
-        counterLabel.text = $"{count}";
-    }
-
+    AstronomicalObject currentlyOnDisplay;
     public void displayPlanetUI(AstronomicalObject planet)
     {
+        if (currentlyOnDisplay == planet)
+            return;
+
+        currentlyOnDisplay = planet;
         planetScreen.visible = true;
+        planetName.text = planet.Name;
 
         foreach (Region region in planet.regions)
         {
             Button regionButton = new Button();
             regionButton.text = region.name;
-            planetScreen.Add(regionButton);
-
+            planetButtons.Add(regionButton);
+            regionButton.RegisterCallback<ClickEvent>(ev => displayRegionUI(region.name));
         }
-        //counterLabel.visible = false;
-        //counterButton.visible = false;
     }
-
     public void hidePlanetUI()
     {
         planetScreen.visible = false;
+        currentlyOnDisplay = null;
+        planetButtons.Clear();
+    }
+    void displayRegionUI(string region)
+    {
+        print($"this is the region {region}");
     }
 }

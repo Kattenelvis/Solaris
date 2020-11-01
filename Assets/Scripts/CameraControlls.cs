@@ -42,7 +42,7 @@ public class CameraControlls : MonoBehaviour
 
     [SerializeField] Texture2D highlightCursor;
     [SerializeField] Texture2D defaultCursor;
-    [SerializeField] UIManager uiManager;
+    //[SerializeField] UIManager uiManager;
     public AstronomicalObject selectedAstronomicalObject;
     void Selection()
     {
@@ -108,7 +108,7 @@ public class CameraControlls : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             selectedAstronomicalObject = null;
-            uiManager.showPlanet(selectedAstronomicalObject);
+            //uiManager.showPlanet(selectedAstronomicalObject);
             ui.hidePlanetUI();
         }
     }
