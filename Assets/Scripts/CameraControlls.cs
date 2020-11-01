@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class CameraControlls : MonoBehaviour
 {
-    public Camera mainCamera;
-    public float panSenitivity;
-    public float zoomSensitivity;
+    [SerializeField] Camera mainCamera;
+    [SerializeField] float panSenitivity;
+    [SerializeField] float zoomSensitivity;
     Vector3 lastClickedCoordinate;
+    [SerializeField] UI ui;
 
     public void cameraControlls()
     {
@@ -73,7 +74,7 @@ public class CameraControlls : MonoBehaviour
             {
                 SelectPlane(hit);
             }
-        }   
+        }
     }
 
     void Select()
@@ -95,7 +96,8 @@ public class CameraControlls : MonoBehaviour
         {
             //uiManager.showPlanet(selectedAstronomicalObject, false);
             selectedAstronomicalObject = selection.GetComponent<AstronomicalObject>();
-            uiManager.showPlanet(selectedAstronomicalObject);
+            //uiManager.showPlanet(selectedAstronomicalObject);
+            ui.displayPlanetUI(selectedAstronomicalObject);
         }
     }
     private void SelectPlane(RaycastHit hit)
@@ -107,6 +109,7 @@ public class CameraControlls : MonoBehaviour
         {
             selectedAstronomicalObject = null;
             uiManager.showPlanet(selectedAstronomicalObject);
+            ui.hidePlanetUI();
         }
     }
 

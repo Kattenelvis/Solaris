@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="height: 310px; opacity: 1; background-color: rgb(144, 144, 144); width: 660px;">
-        <ui:Button text="Button" display-tooltip-when-elided="True" name="Cool-Button" />
-        <ui:Label display-tooltip-when-elided="True" name="Tee" text=" " />
+    <ui:VisualElement name="planet-screen" style="height: 310px; opacity: 1; background-color: rgb(144, 144, 144); width: 660px;">
+        <ui:Label display-tooltip-when-elided="True" name="planet-name" text=" " />
+        <ui:Button text="Button" display-tooltip-when-elided="True" name="region-button" />
     </ui:VisualElement>
 </ui:UXML>

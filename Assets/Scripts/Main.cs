@@ -9,8 +9,9 @@ class Main : MonoBehaviour
     [SerializeField]
     CameraControlls cameraControlls;
 
-    UIManager uimanager; 
-    
+    UIManager uimanager;
+    [SerializeField] UI ui;
+
     //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
     void Start()
     {
@@ -18,7 +19,7 @@ class Main : MonoBehaviour
 
         SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
         IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem();
-        
+
     }
 
     //a tick is the real-time game equivalent of a turn. 
@@ -29,7 +30,7 @@ class Main : MonoBehaviour
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
         /*if (selectedAstronomicalObject != null)
             uimanager.showPlanet(selectedAstronomicalObject, true);*/
-        
+
         uimanager.displayTime(tick);
         uimanager.date = uimanager.date.AddDays(1);
         tick++;

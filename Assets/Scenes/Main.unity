@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45053774, g: 0.4984551, b: 0.56398106, a: 1}
+  m_IndirectSpecularColor: {r: 0.45053798, g: 0.49845552, b: 0.5639818, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,7 +461,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &282840810
 GameObject:
@@ -825,7 +825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 22.467, y: -28.294, z: -608.78}
 --- !u!1 &907949000
 GameObject:
@@ -930,8 +930,6 @@ GameObject:
   - component: {fileID: 963697329}
   - component: {fileID: 963697331}
   - component: {fileID: 963697330}
-  - component: {fileID: 963697333}
-  - component: {fileID: 963697332}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -982,31 +980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraControlls: {fileID: 1128995554}
+  ui: {fileID: 1116355471}
   gameSpeed: 1
---- !u!114 &963697332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963697328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce23950c6b6bb4144afa1005396c076c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &963697333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963697328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2d1b0acd5ccdb4ea45b2fa349e951d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &965366687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1052654737
 GameObject:
@@ -1235,7 +1210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1116355471
 MonoBehaviour:
@@ -1281,6 +1256,7 @@ MonoBehaviour:
   mainCamera: {fileID: 282840813}
   panSenitivity: 0.05
   zoomSensitivity: 30
+  ui: {fileID: 1116355471}
   highlightCursor: {fileID: 2800000, guid: 170af75e8697bcc48a5db20c13055362, type: 3}
   defaultCursor: {fileID: 2800000, guid: d033cb340d6e7dc4aa9408c9945443da, type: 3}
   uiManager: {fileID: 1394396984}
@@ -1493,6 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baac5e643f941324c92094dbbe3b70a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 1116355471}
   planetUI: {fileID: 1967308266431083264, guid: 56df820f6ad89824483458150efe27d9,
     type: 3}
   button: {fileID: 5264001903249905814, guid: ca91ff934c813eb4ebe4be1a348866ff, type: 3}
@@ -1595,7 +1572,7 @@ Transform:
   m_LocalScale: {x: 1.260247, y: 1.260247, z: 1.260247}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1443380669
 MonoBehaviour:
@@ -1704,7 +1681,7 @@ Transform:
   m_LocalScale: {x: 78.39251, y: 0.10144, z: 84.59946}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1447177145
 Rigidbody:
@@ -1751,7 +1728,7 @@ Transform:
   m_Children:
   - {fileID: 143010234}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738609589
 GameObject:
