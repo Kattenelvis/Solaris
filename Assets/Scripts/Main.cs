@@ -8,8 +8,6 @@ class Main : MonoBehaviour
 
     [SerializeField]
     CameraControlls cameraControlls;
-
-    [SerializeField] UIManager uimanager;
     [SerializeField] UI ui;
 
     //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
@@ -29,9 +27,8 @@ class Main : MonoBehaviour
         AstronomicalObject selectedAstronomicalObject = cameraControlls.selectedAstronomicalObject;
         /*if (selectedAstronomicalObject != null)
             uimanager.showPlanet(selectedAstronomicalObject, true);*/
-
-        uimanager.displayTime(tick);
-        uimanager.date = uimanager.date.AddDays(1);
+        ui.displayDate();
+        ui.date = ui.date.AddDays(1);
         tick++;
     }
     const int maxSpeed = 100;

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using System;
 public class UI : MonoBehaviour
 {
     Label counterLabel;
@@ -10,15 +10,17 @@ public class UI : MonoBehaviour
     VisualElement rootVS;
     Label planetName;
     Button defaultPlanetButton;
-    VisualElement planetButtons;
+    IMGUIContainer planetButtons;
+    Label dateUI;
     void OnEnable()
     {
         rootVS = GetComponent<UIDocument>().rootVisualElement;
 
         planetName = rootVS.Q<Label>("planet-name");
         defaultPlanetButton = rootVS.Q<Button>("planet-button");
-        planetButtons = rootVS.Q<VisualElement>("regions");
+        planetButtons = rootVS.Q<IMGUIContainer>("regions");
         planetScreen = rootVS.Q<VisualElement>("planet-screen");
+        dateUI = rootVS.Q<Label>("the-date");
     }
     AstronomicalObject currentlyOnDisplay;
     public void displayPlanetUI(AstronomicalObject planet)
@@ -34,7 +36,8 @@ public class UI : MonoBehaviour
         {
             Button regionButton = new Button();
             regionButton.text = region.name;
-            planetButtons.Add(regionButton);
+            regionButton.focusable = true;
+            planetButtons.hierarchy.Add(regionButton);
             regionButton.RegisterCallback<ClickEvent>(ev => displayRegionUI(region.name));
         }
     }
@@ -42,10 +45,17 @@ public class UI : MonoBehaviour
     {
         planetScreen.visible = false;
         currentlyOnDisplay = null;
-        planetButtons.Clear();
+        planetButtons.hierarchy.Clear();
     }
     void displayRegionUI(string region)
     {
         print($"this is the region {region}");
     }
+
+    public DateTime date = new DateTime(2030, 1, 1);
+    public void displayDate()
+    {
+        dateUI.text = date.ToString("yyyy-MM-dd");
+    }
+
 }
