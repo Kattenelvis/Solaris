@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     Button defaultPlanetButton;
     IMGUIContainer planetButtons;
     Label dateUI;
+    VisualElement regionScreen;
     void OnEnable()
     {
         rootVS = GetComponent<UIDocument>().rootVisualElement;
@@ -21,6 +22,7 @@ public class UI : MonoBehaviour
         planetButtons = rootVS.Q<IMGUIContainer>("regions");
         planetScreen = rootVS.Q<VisualElement>("planet-screen");
         dateUI = rootVS.Q<Label>("the-date");
+        regionScreen = rootVS.Q<VisualElement>("region-screen");
     }
     AstronomicalObject currentlyOnDisplay;
     public void displayPlanetUI(AstronomicalObject planet)
@@ -38,7 +40,7 @@ public class UI : MonoBehaviour
             regionButton.text = region.name;
             regionButton.focusable = true;
             planetButtons.hierarchy.Add(regionButton);
-            regionButton.RegisterCallback<ClickEvent>(ev => displayRegionUI(region.name));
+            regionButton.RegisterCallback<ClickEvent>(ev => displayRegionUI(region));
         }
     }
     public void hidePlanetUI()
@@ -46,10 +48,17 @@ public class UI : MonoBehaviour
         planetScreen.visible = false;
         currentlyOnDisplay = null;
         planetButtons.hierarchy.Clear();
+        regionScreen.visible = false;
     }
-    void displayRegionUI(string region)
+    void displayRegionUI(Region region)
     {
-        print($"this is the region {region}");
+        regionScreen.visible = true;
+
+        //TODO: Figure out a way to simplify this
+        regionScreen.Q<Label>("region-name").text = region.name;
+        regionScreen.Q<Label>("hydrocarbons").text = $"Hydrocarbons: {region.hydrocarbons}";
+        regionScreen.Q<Label>("refineries").text = $"Refineries: {region.refineries}";
+        regionScreen.Q<Label>("fuel").text = $"Fuel: {region.fuel}";
     }
 
     public DateTime date = new DateTime(2030, 1, 1);
