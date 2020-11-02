@@ -1,21 +1,22 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class SolarSystemGenerator : MonoBehaviour{
+public class SolarSystemGenerator : MonoBehaviour
+{
     IAstronomicalObject EarthData = new AstronomicalObject();
     IAstronomicalObject Moon = new AstronomicalObject();
     [SerializeField] GameObject planetEarth;
     [SerializeField] GameObject earthsMoon;
-    Country Player = new Country(Country.controlledBy.HUMAN);
-    Country Enemy = new Country(Country.controlledBy.AI);
-    Country UnclaimedLand = new Country(Country.controlledBy.NOONE);
+    Player Player = new Player(Player.controlledBy.HUMAN);
+    Player Enemy = new Player(Player.controlledBy.AI);
+    Player UnclaimedLand = new Player(Player.controlledBy.NOONE);
     Resource hydrocarbons = new Resource("hydrocarbons");
     Building refinery = new Building("Refinery");
 
     public IAstronomicalObject[] generateSolarSystem()
     {
 
-        GameObject inGameEarth = Instantiate(planetEarth, new Vector3(46,0,15), Quaternion.identity);
+        GameObject inGameEarth = Instantiate(planetEarth, new Vector3(46, 0, 15), Quaternion.identity);
         inGameEarth.AddComponent<AstronomicalObject>();
         IAstronomicalObject EarthData = inGameEarth.GetComponent<AstronomicalObject>();
 
@@ -27,8 +28,8 @@ public class SolarSystemGenerator : MonoBehaviour{
             new Region("USA", Enemy),
         };
         EarthData.Name = "Earth";
-        
-        GameObject inGameMoon = Instantiate(earthsMoon, new Vector3(90,0,25), Quaternion.identity);
+
+        GameObject inGameMoon = Instantiate(earthsMoon, new Vector3(90, 0, 25), Quaternion.identity);
         inGameMoon.AddComponent<AstronomicalObject>();
         IAstronomicalObject MoonData = inGameMoon.GetComponent<AstronomicalObject>();
 
@@ -39,8 +40,8 @@ public class SolarSystemGenerator : MonoBehaviour{
         MoonData.Name = "Moon";
 
 
-        IAstronomicalObject[] output = {EarthData, Moon};
+        IAstronomicalObject[] output = { EarthData, Moon };
 
         return output;
-    } 
+    }
 }

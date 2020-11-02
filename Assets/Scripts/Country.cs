@@ -1,4 +1,4 @@
-public class Country
+public class Player
 {
     public enum controlledBy
     {
@@ -8,7 +8,7 @@ public class Country
     }
     public controlledBy controller;
     public int totalFuel;
-    public Country(controlledBy _controller)
+    public Player(controlledBy _controller)
     {
         controller = _controller;
     }
