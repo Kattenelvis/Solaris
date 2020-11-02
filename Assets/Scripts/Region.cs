@@ -7,6 +7,7 @@ public class Region : IRegion
     public int refineries { get; set; }
     public int fuel { get; set; }
     public string name { get; set; }
+    //public string TAG { get; }
     public Region(string name, Player owner)
     {
         this.name = name;
@@ -16,8 +17,4 @@ public class Region : IRegion
         this.fuel = 1000 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
         this.hydrocarbons = 3125 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
     }
-
-
-
-
 }

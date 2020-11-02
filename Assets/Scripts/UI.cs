@@ -13,6 +13,11 @@ public class UI : MonoBehaviour
     IMGUIContainer planetButtons;
     Label dateUI;
     VisualElement regionScreen;
+    AstronomicalObject selectedPlanet;
+    public void updateUI()
+    {
+        displayPlanetUI(selectedPlanet);
+    }
     void OnEnable()
     {
         rootVS = GetComponent<UIDocument>().rootVisualElement;
@@ -24,13 +29,13 @@ public class UI : MonoBehaviour
         dateUI = rootVS.Q<Label>("the-date");
         regionScreen = rootVS.Q<VisualElement>("region-screen");
     }
-    AstronomicalObject currentlyOnDisplay;
+
     public void displayPlanetUI(AstronomicalObject planet)
     {
-        if (currentlyOnDisplay == planet)
-            return;
+        //Clears previous UI
+        hidePlanetUI();
 
-        currentlyOnDisplay = planet;
+        selectedPlanet = planet;
         planetScreen.visible = true;
         planetName.text = planet.Name;
 
@@ -46,7 +51,6 @@ public class UI : MonoBehaviour
     public void hidePlanetUI()
     {
         planetScreen.visible = false;
-        currentlyOnDisplay = null;
         planetButtons.hierarchy.Clear();
         regionScreen.visible = false;
     }
@@ -59,6 +63,7 @@ public class UI : MonoBehaviour
         regionScreen.Q<Label>("hydrocarbons").text = $"Hydrocarbons: {region.hydrocarbons}";
         regionScreen.Q<Label>("refineries").text = $"Refineries: {region.refineries}";
         regionScreen.Q<Label>("fuel").text = $"Fuel: {region.fuel}";
+        regionScreen.Q<Label>("owner").text = $"Owner: {region.owner.name}";
     }
 
     public DateTime date = new DateTime(2030, 1, 1);
@@ -66,5 +71,4 @@ public class UI : MonoBehaviour
     {
         dateUI.text = date.ToString("yyyy-MM-dd");
     }
-
 }

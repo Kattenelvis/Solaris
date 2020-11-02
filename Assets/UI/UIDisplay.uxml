@@ -5,14 +5,16 @@
             <ui:Label display-tooltip-when-elided="True" name="the-date" text="g" tabindex="2" style="font-size: 37px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement name="planet-screen" style="opacity: 1; background-color: rgb(144, 144, 144); width: 355px; white-space: nowrap;">
-            <ui:Label name="planet-name" text=" " style="font-size: 23px; -unity-text-align: middle-center;" />
+            <ui:Label name="planet-name" text=" " style="font-size: 23px; -unity-text-align: middle-center; height: 29px;" />
             <ui:IMGUIContainer name="regions" />
         </ui:VisualElement>
-        <ui:VisualElement name="region-screen" style="width: 30%; background-color: rgba(54, 58, 79, 0.75);">
+        <ui:VisualElement name="region-screen" style="width: 30%; background-color: rgba(54, 58, 79, 0.75); position: absolute; top: 4px; left: 369.3333px;">
+            <ui:Button text="Annex" display-tooltip-when-elided="True" name="annex-button" />
             <ui:Label name="region-name" style="font-size: 30px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="hydrocarbons" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="refineries" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="fuel" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+            <ui:Label name="owner" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

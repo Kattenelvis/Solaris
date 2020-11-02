@@ -10,13 +10,19 @@ class Main : MonoBehaviour
     CameraControlls cameraControlls;
     [SerializeField] UI ui;
 
+    //TODO: Add a "player managment" class.
+    Player human = new Player(Player.controlledBy.HUMAN, "Human Player");
+    Player AI = new Player(Player.controlledBy.AI, "Enemy Player");
+    Player uncolonized = new Player(Player.controlledBy.NOONE, "Uncolonized");
     //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
     void Start()
     {
-
         SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
-        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem();
-
+        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem(new Player[] { human, AI, uncolonized });
+        Annex(human, solarSystem[0].regions[0]);
+        Annex(human, solarSystem[0].regions[1]);
+        Annex(AI, solarSystem[0].regions[2]);
+        Annex(AI, solarSystem[0].regions[3]);
     }
 
     //a tick is the real-time game equivalent of a turn. 
@@ -55,5 +61,13 @@ class Main : MonoBehaviour
 
         //Controls
         cameraControlls.cameraControlls();
+    }
+
+
+    //TODO: Move this to a different class, maybe the "Events class" or something
+    public void Annex(Player newOwner, IRegion region)
+    {
+        region.owner = newOwner;
+        ui.updateUI();
     }
 }
