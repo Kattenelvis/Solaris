@@ -19,10 +19,7 @@ class Main : MonoBehaviour
     {
         SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
         IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem(new Player[] { human, AI, uncolonized });
-        Annex(human, solarSystem[0].regions[0]);
-        Annex(human, solarSystem[0].regions[1]);
-        Annex(AI, solarSystem[0].regions[2]);
-        Annex(AI, solarSystem[0].regions[3]);
+
     }
 
     //a tick is the real-time game equivalent of a turn. 
@@ -62,7 +59,6 @@ class Main : MonoBehaviour
         //Controls
         cameraControlls.cameraControlls();
     }
-
 
     //TODO: Move this to a different class, maybe the "Events class" or something
     public void Annex(Player newOwner, IRegion region)
