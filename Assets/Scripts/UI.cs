@@ -78,14 +78,4 @@ public class UI : MonoBehaviour
     {
         dateUI.text = date.ToString("yyyy-MM-dd");
     }
-
-    public void Annex(Region region)
-    {
-        Player humanplayer = playerManager.players[1];
-        if (region.owner != humanplayer)
-        {
-            playerManager.Annex(humanplayer, region);
-            updateUI();
-        }
-    }
 }

@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnEnable()
     {
-        currentlyPlayingAs = players[1];
+        currentlyPlayingAs = players[2];
     }
 
     [SerializeField] UI ui;
@@ -28,5 +28,16 @@ public class PlayerManager : MonoBehaviour
     public void ChangePlayer(Player newPlayer)
     {
         currentlyPlayingAs = newPlayer;
+    }
+
+    public Player findPlayerByTag(string tag)
+    {
+        foreach (Player player in players)
+        {
+            if (player.tag == tag)
+                return player;
+        }
+        Debug.LogWarning("No tag was found");
+        return null;
     }
 }
