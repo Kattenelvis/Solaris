@@ -22,7 +22,7 @@ public class SolarSystemGenerator : MonoBehaviour
             new Region("Europe", players[1]),
             new Region("China", players[2]),
             new Region("Russia", players[2]),
-            new Region("USA", players[2]),
+            new Region("USA", players[3]),
         };
         EarthData.Name = "Earth";
 

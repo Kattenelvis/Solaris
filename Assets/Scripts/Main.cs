@@ -5,7 +5,6 @@ using UnityEngine;
 //THIS IS THE ONLY CLASS TO BE ALLOWED THE UPDATE() AND START() FUNCTION.
 class Main : MonoBehaviour
 {
-
     [SerializeField] CameraControlls cameraControlls;
     [SerializeField] UI ui;
     [SerializeField] PlayerManager playerManager;

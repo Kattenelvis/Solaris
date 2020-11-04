@@ -69,7 +69,8 @@ public class UI : MonoBehaviour
         regionScreen.Q<Label>("fuel").text = $"Fuel: {region.fuel}";
         regionScreen.Q<Label>("owner").text = $"Owner: {region.owner.name}";
         Button annexButton = regionScreen.Q<Button>("annex-button");
-        annexButton.RegisterCallback<ClickEvent>(ev => Annex(region));
+        annexButton.RegisterCallback<ClickEvent>(ev => playerManager.Annex(playerManager.currentlyPlayingAs, region));
+        annexButton.RegisterCallback<ClickEvent>(ev => updateUI());
     }
 
     public DateTime date = new DateTime(2030, 1, 1);
