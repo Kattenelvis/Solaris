@@ -10,7 +10,7 @@ public class SolarSystemGenerator : MonoBehaviour
     Resource hydrocarbons = new Resource("hydrocarbons");
     Building refinery = new Building("Refinery");
 
-    public IAstronomicalObject[] generateSolarSystem(Player[] players)
+    public IAstronomicalObject[] generateSolarSystem(List<Player> players)
     {
 
         GameObject inGameEarth = Instantiate(planetEarth, new Vector3(46, 0, 15), Quaternion.identity);
@@ -19,10 +19,10 @@ public class SolarSystemGenerator : MonoBehaviour
 
         //Move this to a text file later for mod compatability (more regions mod e.t.c)
         EarthData.regions = new List<IRegion>{
-            new Region("Europe", players[0]),
-            new Region("China", players[1]),
-            new Region("Russia", players[1]),
-            new Region("USA", players[0]),
+            new Region("Europe", players[1]),
+            new Region("China", players[2]),
+            new Region("Russia", players[2]),
+            new Region("USA", players[2]),
         };
         EarthData.Name = "Earth";
 
@@ -31,8 +31,8 @@ public class SolarSystemGenerator : MonoBehaviour
         IAstronomicalObject MoonData = inGameMoon.GetComponent<AstronomicalObject>();
 
         MoonData.regions = new List<IRegion>{
-            new Region("The Front Side", players[2]),
-            new Region("The Back Side", players[2])
+            new Region("The Front Side", players[0]),
+            new Region("The Back Side", players[0])
         };
 
         //TODO: Obviously make the solar system creator better

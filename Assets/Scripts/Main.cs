@@ -6,19 +6,14 @@ using UnityEngine;
 class Main : MonoBehaviour
 {
 
-    [SerializeField]
-    CameraControlls cameraControlls;
+    [SerializeField] CameraControlls cameraControlls;
     [SerializeField] UI ui;
-
-    //TODO: Add a "player managment" class.
-    Player human = new Player(Player.controlledBy.HUMAN, "Human Player");
-    Player AI = new Player(Player.controlledBy.AI, "Enemy Player");
-    Player uncolonized = new Player(Player.controlledBy.NOONE, "Uncolonized");
+    [SerializeField] PlayerManager playerManager;
     //THIS IS THE ONLY CLASS TO BE ALLOWED THE START() FUNCTION.
     void Start()
     {
         SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
-        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem(new Player[] { human, AI, uncolonized });
+        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem(playerManager.players);
 
     }
 
@@ -58,12 +53,5 @@ class Main : MonoBehaviour
 
         //Controls
         cameraControlls.cameraControlls();
-    }
-
-    //TODO: Move this to a different class, maybe the "Events class" or something
-    public void Annex(Player newOwner, IRegion region)
-    {
-        region.owner = newOwner;
-        ui.updateUI();
     }
 }

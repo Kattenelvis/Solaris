@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using System;
 public class UI : MonoBehaviour
 {
+    [SerializeField] PlayerManager playerManager;
     Label counterLabel;
     Button counterButton;
     VisualElement planetScreen;
@@ -14,9 +15,11 @@ public class UI : MonoBehaviour
     Label dateUI;
     VisualElement regionScreen;
     AstronomicalObject selectedPlanet;
+    Region selectedRegion;
     public void updateUI()
     {
         displayPlanetUI(selectedPlanet);
+        displayRegionUI(selectedRegion);
     }
     void OnEnable()
     {
@@ -57,6 +60,7 @@ public class UI : MonoBehaviour
     void displayRegionUI(Region region)
     {
         regionScreen.visible = true;
+        selectedRegion = region;
 
         //TODO: Figure out a way to simplify this
         regionScreen.Q<Label>("region-name").text = region.name;
@@ -64,11 +68,23 @@ public class UI : MonoBehaviour
         regionScreen.Q<Label>("refineries").text = $"Refineries: {region.refineries}";
         regionScreen.Q<Label>("fuel").text = $"Fuel: {region.fuel}";
         regionScreen.Q<Label>("owner").text = $"Owner: {region.owner.name}";
+        Button annexButton = regionScreen.Q<Button>("annex-button");
+        annexButton.RegisterCallback<ClickEvent>(ev => Annex(region));
     }
 
     public DateTime date = new DateTime(2030, 1, 1);
     public void displayDate()
     {
         dateUI.text = date.ToString("yyyy-MM-dd");
+    }
+
+    public void Annex(Region region)
+    {
+        Player humanplayer = playerManager.players[1];
+        if (region.owner != humanplayer)
+        {
+            playerManager.Annex(humanplayer, region);
+            updateUI();
+        }
     }
 }

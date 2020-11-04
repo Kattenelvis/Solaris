@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 963697329}
   - component: {fileID: 963697331}
   - component: {fileID: 963697330}
+  - component: {fileID: 963697332}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -565,7 +566,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraControlls: {fileID: 1128995554}
   ui: {fileID: 1116355471}
+  playerManager: {fileID: 963697332}
   gameSpeed: 1
+--- !u!114 &963697332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963697328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72efab60b206f2049adf1aae226188c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 1116355471}
 --- !u!850595691 &1095167525
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -706,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22a1057d6363864f8b4b407ac6bd9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 963697332}
 --- !u!1 &1128995553
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,16 +883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baac5e643f941324c92094dbbe3b70a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 1116355471}
-  planetUI: {fileID: 1967308266431083264, guid: 56df820f6ad89824483458150efe27d9,
-    type: 3}
-  currentPlanetUI: {fileID: 0}
-  button: {fileID: 5264001903249905814, guid: ca91ff934c813eb4ebe4be1a348866ff, type: 3}
-  textBox: {fileID: 9167065119326300242, guid: c42afd6c23e767147b6c54b839903e37, type: 3}
-  regionUI: {fileID: 3658009093754806987, guid: 2b9dca52c7032434caf3f1beb5b11aee,
-    type: 3}
-  currentlyActiveRegionUI: {fileID: 0}
-  timeUI: {fileID: 0}
 --- !u!1 &1443380664
 GameObject:
   m_ObjectHideFlags: 0
