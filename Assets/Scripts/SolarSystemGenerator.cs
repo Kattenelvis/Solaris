@@ -9,11 +9,13 @@ public class SolarSystemGenerator : MonoBehaviour
     [SerializeField] GameObject earthsMoon;
     Resource hydrocarbons = new Resource("hydrocarbons");
     Building refinery = new Building("Refinery");
+    [SerializeField] Vector3 earthPosition;
+    [SerializeField] Vector3 moonPosition;
 
     public IAstronomicalObject[] generateSolarSystem(List<Player> players)
     {
 
-        GameObject inGameEarth = Instantiate(planetEarth, new Vector3(46, 0, 15), Quaternion.identity);
+        GameObject inGameEarth = Instantiate(planetEarth, earthPosition, Quaternion.identity);
         inGameEarth.AddComponent<AstronomicalObject>();
         IAstronomicalObject EarthData = inGameEarth.GetComponent<AstronomicalObject>();
 
@@ -26,7 +28,7 @@ public class SolarSystemGenerator : MonoBehaviour
         };
         EarthData.Name = "Earth";
 
-        GameObject inGameMoon = Instantiate(earthsMoon, new Vector3(90, 0, 25), Quaternion.identity);
+        GameObject inGameMoon = Instantiate(earthsMoon, moonPosition, Quaternion.identity);
         inGameMoon.AddComponent<AstronomicalObject>();
         IAstronomicalObject MoonData = inGameMoon.GetComponent<AstronomicalObject>();
 

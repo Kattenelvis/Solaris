@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143010230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.3, y: 0, z: 25.3}
+  m_LocalPosition: {x: 500, y: 300, z: 69.5}
   m_LocalScale: {x: 40.548344, y: 40.548344, z: 40.548344}
   m_Children: []
   m_Father: {fileID: 1625890122}
@@ -350,12 +350,12 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 72.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
+    m_Bits: 279
+  m_RenderingPath: 0
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_LocalRotation: {x: 0.2426164, y: -0.025661081, z: 0.009325459, w: 0.96973807}
-  m_LocalPosition: {x: 3.7677503, y: 11.152457, z: -21.342278}
+  m_LocalPosition: {x: -22, y: 53.7, z: -46.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 810914082}
@@ -404,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810914081}
   m_LocalRotation: {x: -0, y: -0.011385405, z: -0, w: -0.99993527}
-  m_LocalPosition: {x: 43.8, y: -8.402457, z: 10.322278}
+  m_LocalPosition: {x: 500, y: 300, z: -12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 282840814}
@@ -531,7 +531,7 @@ Transform:
   m_GameObject: {fileID: 963697328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7114561, y: 1.7519091, z: -0.9649043}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -552,6 +552,8 @@ MonoBehaviour:
     type: 3}
   earthsMoon: {fileID: 1630827272993037526, guid: f4c7a645fc6a0994f8859e3b75780a0b,
     type: 3}
+  earthPosition: {x: 550, y: 300, z: 80}
+  moonPosition: {x: 580, y: 300, z: 80}
 --- !u!114 &963697331
 MonoBehaviour:
   m_ObjectHideFlags: 0
