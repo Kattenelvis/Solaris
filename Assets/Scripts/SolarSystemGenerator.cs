@@ -4,15 +4,18 @@ using System.Collections.Generic;
 public class SolarSystemGenerator : MonoBehaviour
 {
     IAstronomicalObject EarthData = new AstronomicalObject();
-    IAstronomicalObject Moon = new AstronomicalObject();
+    IAstronomicalObject MoonData = new AstronomicalObject();
+    IAstronomicalObject SunData = new AstronomicalObject();
     [SerializeField] GameObject planetEarth;
     [SerializeField] GameObject earthsMoon;
+    [SerializeField] GameObject Sun;
     Resource hydrocarbons = new Resource("hydrocarbons");
     Building refinery = new Building("Refinery");
     [SerializeField] Vector3 earthPosition;
     [SerializeField] Vector3 moonPosition;
+    [SerializeField] Vector3 sunPosition;
 
-    public IAstronomicalObject[] generateSolarSystem(List<Player> players)
+    public IAstronomicalObject[] generateSolarSystem()
     {
 
         GameObject inGameEarth = Instantiate(planetEarth, earthPosition, Quaternion.identity);
@@ -21,10 +24,10 @@ public class SolarSystemGenerator : MonoBehaviour
 
         //Move this to a text file later for mod compatability (more regions mod e.t.c)
         EarthData.regions = new List<IRegion>{
-            new Region("Europe", players[1]),
-            new Region("China", players[2]),
-            new Region("Russia", players[2]),
-            new Region("USA", players[3]),
+            new Region("Europe"),
+            new Region("China"),
+            new Region("Russia"),
+            new Region("USA"),
         };
         EarthData.Name = "Earth";
 
@@ -33,8 +36,8 @@ public class SolarSystemGenerator : MonoBehaviour
         IAstronomicalObject MoonData = inGameMoon.GetComponent<AstronomicalObject>();
 
         MoonData.regions = new List<IRegion>{
-            new Region("The Front Side", players[0]),
-            new Region("The Back Side", players[0])
+            new Region("The Front Side"),
+            new Region("The Back Side")
         };
 
         //TODO: Obviously make the solar system creator better
@@ -44,8 +47,13 @@ public class SolarSystemGenerator : MonoBehaviour
         MoonData.regions[1].fuel = 0;
         MoonData.Name = "Moon";
 
+        GameObject inGameSun = Instantiate(Sun, sunPosition, Quaternion.identity);
+        inGameSun.AddComponent<AstronomicalObject>();
+        IAstronomicalObject sunData = inGameSun.GetComponent<AstronomicalObject>();
 
-        IAstronomicalObject[] output = { EarthData, Moon };
+        sunData.Name = "Sun";
+
+        IAstronomicalObject[] output = { EarthData, MoonData, sunData };
 
         return output;
     }

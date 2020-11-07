@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +13,13 @@ class Main : MonoBehaviour
     void Start()
     {
         SolarSystemGenerator SolarSystemGenerator = this.GetComponent<SolarSystemGenerator>();
-        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem(playerManager.players);
-
+        IAstronomicalObject[] solarSystem = SolarSystemGenerator.generateSolarSystem();
+        playerManager.generatePlayers(solarSystem[0].regions);
     }
 
     //a tick is the real-time game equivalent of a turn. 
     int tick;
+    int month;
     void newTick()
     {
         //Updates the UI every tick
@@ -26,8 +28,23 @@ class Main : MonoBehaviour
             uimanager.showPlanet(selectedAstronomicalObject, true);*/
         ui.displayDate();
         ui.date = ui.date.AddDays(1);
+        if (month != ui.date.Month)
+            newMonth();
+
+        month = ui.date.Month;
         tick++;
     }
+
+    private void newMonth()
+    {
+        foreach (Player player in playerManager.players)
+        {
+            player.ExtractResources();
+            ui.displayPlayerStatistics(playerManager.currentlyPlayingAs);
+            //ui.updateUI();
+        }
+    }
+
     const int maxSpeed = 100;
 
     [Range(0, maxSpeed)]

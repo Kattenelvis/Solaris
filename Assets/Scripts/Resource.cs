@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-public class Resource 
+public class Resource
 {
     public string name;
     public Resource(string _name)
@@ -16,5 +16,5 @@ public class Building
     public Building(string _name)
     {
         name = _name;
-    }    
+    }
 }

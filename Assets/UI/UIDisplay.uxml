@@ -1,20 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="regionalStatistic.uss" />
     <ui:VisualElement name="main">
-        <ui:VisualElement name="date-screen" style="position: absolute; top: 22px; left: 1565px; background-color: rgb(42, 42, 84); height: 52px; width: 337.3333px;">
-            <ui:Label display-tooltip-when-elided="True" name="the-date" text="g" tabindex="2" style="font-size: 37px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+        <ui:VisualElement name="resource-screen" style="background-color: rgba(7, 4, 36, 255);">
+            <ui:Label display-tooltip-when-elided="True" name="fuel" style="font-size: 20px; -unity-font-style: bold; -unity-text-align: upper-left; color: rgba(255, 255, 255, 255); width: 20%;" />
         </ui:VisualElement>
-        <ui:VisualElement name="planet-screen" style="opacity: 1; background-color: rgb(144, 144, 144); width: 355px; white-space: nowrap;">
+        <ui:VisualElement name="planet-screen" style="opacity: 1; background-color: rgb(144, 144, 144); width: 355px; white-space: nowrap; visibility: hidden;">
             <ui:Label name="planet-name" text=" " style="font-size: 23px; -unity-text-align: middle-center; height: 29px;" />
             <ui:IMGUIContainer name="regions" />
         </ui:VisualElement>
-        <ui:VisualElement name="region-screen" style="width: 30%; background-color: rgba(54, 58, 79, 0.75); position: absolute; top: 804px; left: 914px;">
+        <ui:VisualElement name="region-screen" style="width: 30%; background-color: rgba(54, 58, 79, 0.75); display: flex; visibility: hidden;">
             <ui:Button text="Annex" display-tooltip-when-elided="True" name="annex-button" />
             <ui:Label name="region-name" style="font-size: 30px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="hydrocarbons" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="refineries" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="fuel" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
             <ui:Label name="owner" style="font-size: 20px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="date-screen" style="position: absolute; top: 22px; left: 1565px; background-color: rgb(42, 42, 84); height: 52px; width: 337.3333px;">
+            <ui:Label display-tooltip-when-elided="True" name="the-date" text="g" tabindex="2" style="font-size: 37px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

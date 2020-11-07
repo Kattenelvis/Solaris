@@ -16,10 +16,12 @@ public class UI : MonoBehaviour
     VisualElement regionScreen;
     AstronomicalObject selectedPlanet;
     Region selectedRegion;
+    VisualElement resourceScreen;
     public void updateUI()
     {
         displayPlanetUI(selectedPlanet);
         displayRegionUI(selectedRegion);
+        displayPlayerStatistics(playerManager.currentlyPlayingAs);
     }
     void OnEnable()
     {
@@ -31,6 +33,7 @@ public class UI : MonoBehaviour
         planetScreen = rootVS.Q<VisualElement>("planet-screen");
         dateUI = rootVS.Q<Label>("the-date");
         regionScreen = rootVS.Q<VisualElement>("region-screen");
+        resourceScreen = rootVS.Q<VisualElement>("resource-screen");
     }
 
     public void displayPlanetUI(AstronomicalObject planet)
@@ -71,6 +74,10 @@ public class UI : MonoBehaviour
         Button annexButton = regionScreen.Q<Button>("annex-button");
         annexButton.RegisterCallback<ClickEvent>(ev => playerManager.Annex(playerManager.currentlyPlayingAs, region));
         annexButton.RegisterCallback<ClickEvent>(ev => updateUI());
+    }
+    public void displayPlayerStatistics(Player player)
+    {
+        resourceScreen.Q<Label>("fuel").text = $"Fuel: {player.totalFuel.ToString()}";
     }
 
     public DateTime date = new DateTime(2030, 1, 1);
