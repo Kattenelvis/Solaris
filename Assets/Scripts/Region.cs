@@ -8,15 +8,6 @@ public class Region : IRegion
     public int fuel { get; set; }
     public string name { get; set; }
     //public string TAG { get; }
-    public Region(string name, Player owner)
-    {
-        this.name = name;
-        this.owner = owner;
-
-        this.refineries = 10 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
-        this.fuel = 1000 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
-        this.hydrocarbons = 3125 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
-    }
     public Region(string name)
     {
         this.name = name;

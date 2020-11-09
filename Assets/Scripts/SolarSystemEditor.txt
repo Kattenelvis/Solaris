@@ -1,0 +1,14 @@
+//Each region has the following statistics:
+//NAME, CONTROLLER, HYDROCARBONS, REFINERIES
+
+<<Earth>>
+    Europe, European Union, 4500, 11
+    China, China, 5000, 10
+    Russia, Russia, 5000, 10
+    North America, USA, 6000, 12
+
+<<Moon>>
+    Front Side, Uncolonized, 100, 0
+    Back Side, Uncolonized, 100, 0
+
+<<Sun>>

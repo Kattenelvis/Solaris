@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 public class SolarSystemGenerator : MonoBehaviour
 {
     IAstronomicalObject EarthData = new AstronomicalObject();
@@ -49,12 +50,21 @@ public class SolarSystemGenerator : MonoBehaviour
 
         GameObject inGameSun = Instantiate(Sun, sunPosition, Quaternion.identity);
         inGameSun.AddComponent<AstronomicalObject>();
-        IAstronomicalObject sunData = inGameSun.GetComponent<AstronomicalObject>();
+        IAstronomicalObject SunData = inGameSun.GetComponent<AstronomicalObject>();
 
-        sunData.Name = "Sun";
+        SunData.Name = "Sun";
 
-        IAstronomicalObject[] output = { EarthData, MoonData, sunData };
+        IAstronomicalObject[] output = { EarthData, MoonData, SunData };
 
+        List<Region> lol = getPlanetEditorData(EarthData);
         return output;
+    }
+
+    public static List<Region> getPlanetEditorData(IAstronomicalObject astroObject)
+    {
+        string path = Application.dataPath + "/Scripts/SolarSystemEditor.txt";
+        var file = File.ReadAllLines(path);
+        print(file[4].Split(',')[0].Remove(' '));
+        return new List<Region>();
     }
 }
