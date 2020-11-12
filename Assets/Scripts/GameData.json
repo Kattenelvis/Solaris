@@ -1,0 +1,58 @@
+{
+    "Players": [
+        {
+            "Name": "European Union",
+            "Tag": "EUR"
+        },
+        {
+            "Name": "Asian Leauge",
+            "Tag": "ASL"
+        },
+        {
+            "Name": "United States",
+            "Tag": "USA"
+        },
+        {
+            "Name": "Russian Federation",
+            "Tag": "RUS"
+        }
+    ],
+    "Planets": [
+        {
+            "Name": "Earth",
+            "x": 550,
+            "y": 300,
+            "z": 80,
+            "Regions": [
+                {
+                    "Name": "Europe",
+                    "Hydrocarbons": 4000,
+                    "Refineries": 10
+                },
+                {
+                    "Name": "Asia",
+                    "Hydrocarbons": 4000,
+                    "Refineries": 10
+                }
+            ]
+        },
+        {
+            "Name": "Moon",
+            "x": 580,
+            "y": 300,
+            "z": 80,
+            "Regions": [
+                {
+                    "Name": "Back Side",
+                    "Hydrocarbons": 100,
+                    "Refineries": 0
+                },
+                {
+                    "Name": "Front Side",
+                    "Hydrocarbons": 200,
+                    "Refineries": 0
+                }
+            ]
+        }
+    ]
+}

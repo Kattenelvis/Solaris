@@ -32,6 +32,8 @@ public class SolarSystemGenerator : MonoBehaviour
         };
         EarthData.Name = "Earth";
 
+
+
         GameObject inGameMoon = Instantiate(earthsMoon, moonPosition, Quaternion.identity);
         inGameMoon.AddComponent<AstronomicalObject>();
         IAstronomicalObject MoonData = inGameMoon.GetComponent<AstronomicalObject>();
@@ -56,15 +58,15 @@ public class SolarSystemGenerator : MonoBehaviour
 
         IAstronomicalObject[] output = { EarthData, MoonData, SunData };
 
-        List<Region> lol = getPlanetEditorData(EarthData);
+        List<Region> lol = getSolarSystemEditorData(EarthData);
         return output;
     }
 
-    public static List<Region> getPlanetEditorData(IAstronomicalObject astroObject)
+    public static List<Region> getSolarSystemEditorData(IAstronomicalObject astroObject)
     {
-        string path = Application.dataPath + "/Scripts/SolarSystemEditor.txt";
+        /*string path = Application.dataPath + "/Scripts/SolarSystemEditor.txt";
         var file = File.ReadAllLines(path);
-        print(file[4].Split(',')[0].Remove(' '));
+        print(file[4].Split(',')[0].Remove(' '));*/
         return new List<Region>();
     }
 }

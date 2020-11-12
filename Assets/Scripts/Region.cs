@@ -17,4 +17,14 @@ public class Region : IRegion
         this.fuel = 1000 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
         this.hydrocarbons = 3125 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
     }
+
+    public Region(string name, int refineries, int hydrocarbons)
+    {
+        this.name = name;
+        this.owner = new Player(Player.controlledBy.NOONE, "Nothing");
+
+        this.refineries = refineries;
+        this.hydrocarbons = hydrocarbons;
+        this.fuel = 1000 + new Random().Next(1, 40 + Convert.ToInt32(name[0]));
+    }
 }
