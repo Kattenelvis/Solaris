@@ -19,16 +19,21 @@ public class PlayerManager : MonoBehaviour
         Annex(players[2], regions[2]);
         Annex(players[3], regions[3]);
 
-        currentlyPlayingAs = players[2];
+        currentlyPlayingAs = players[1];
     }
     [SerializeField] UI ui;
     public void Annex(Player newOwner, IRegion region)
     {
         if (region.owner != newOwner)
         {
+            print(region.name + " Has been annexed by: " + newOwner.name);
             region.owner.regionsControlled.Remove(region);
             region.owner = newOwner;
             newOwner.regionsControlled.Add(region);
+        }
+        else
+        {
+            Debug.LogWarning("Player attempting to annex a part of itself");
         }
     }
     public void ChangePlayer(Player newPlayer)

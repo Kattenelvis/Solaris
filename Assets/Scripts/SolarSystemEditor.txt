@@ -1,5 +1,6 @@
 //Each region has the following statistics:
 //NAME, CONTROLLER, HYDROCARBONS, REFINERIES
+//Will be replaced by GamaData.json
 
 <<Earth>>
     Europe, European Union, 4500, 11
