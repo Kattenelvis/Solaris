@@ -34,6 +34,10 @@ public class UI : MonoBehaviour
         dateUI = rootVS.Q<Label>("the-date");
         regionScreen = rootVS.Q<VisualElement>("region-screen");
         resourceScreen = rootVS.Q<VisualElement>("resource-screen");
+
+        Button annexButton = regionScreen.Q<Button>("annex-button");
+        annexButton.RegisterCallback<ClickEvent>(ev => playerManager.Annex(playerManager.currentlyPlayingAs, selectedRegion));
+        annexButton.RegisterCallback<ClickEvent>(ev => updateUI());
     }
 
     public void displayPlanetUI(AstronomicalObject planet)
@@ -71,9 +75,7 @@ public class UI : MonoBehaviour
         regionScreen.Q<Label>("refineries").text = $"Refineries: {region.refineries}";
         regionScreen.Q<Label>("fuel").text = $"Fuel: {region.fuel}";
         regionScreen.Q<Label>("owner").text = $"Owner: {region.owner.name}";
-        Button annexButton = regionScreen.Q<Button>("annex-button");
-        annexButton.RegisterCallback<ClickEvent>(ev => playerManager.Annex(playerManager.currentlyPlayingAs, region));
-        annexButton.RegisterCallback<ClickEvent>(ev => updateUI());
+        
     }
     public void displayPlayerStatistics(Player player)
     {
