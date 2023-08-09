@@ -18,7 +18,6 @@ public class SolarSystemGenerator : MonoBehaviour
 
     public IAstronomicalObject[] generateSolarSystem()
     {
-
         GameObject inGameEarth = Instantiate(planetEarth, earthPosition, Quaternion.identity);
         inGameEarth.AddComponent<AstronomicalObject>();
         IAstronomicalObject EarthData = inGameEarth.GetComponent<AstronomicalObject>();
@@ -31,8 +30,6 @@ public class SolarSystemGenerator : MonoBehaviour
             new Region("USA"),
         };
         EarthData.Name = "Earth";
-
-
 
         GameObject inGameMoon = Instantiate(earthsMoon, moonPosition, Quaternion.identity);
         inGameMoon.AddComponent<AstronomicalObject>();

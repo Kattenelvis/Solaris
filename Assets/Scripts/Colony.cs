@@ -1,0 +1,4 @@
+class Colony 
+{
+    int population;
+}

@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] UI ui;
     public void Annex(Player newOwner, IRegion region)
     {
-        print(region.name + " Has been annexed by: " + newOwner.name);
+        //print(region.name + " Has been annexed by: " + newOwner.name);
         if (region.owner != newOwner)
         {
             region.owner.regionsControlled.Remove(region);

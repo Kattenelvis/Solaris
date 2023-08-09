@@ -73,13 +73,13 @@ public class UI : MonoBehaviour
         regionScreen.Q<Label>("region-name").text = region.name;
         regionScreen.Q<Label>("hydrocarbons").text = $"Hydrocarbons: {region.hydrocarbons}";
         regionScreen.Q<Label>("refineries").text = $"Refineries: {region.refineries}";
-        regionScreen.Q<Label>("fuel").text = $"Fuel: {region.fuel}";
+        regionScreen.Q<Label>("fuel").text = $"Income: {region.fuel}";
         regionScreen.Q<Label>("owner").text = $"Owner: {region.owner.name}";
         
     }
     public void displayPlayerStatistics(Player player)
     {
-        resourceScreen.Q<Label>("fuel").text = $"Fuel: {player.totalFuel.ToString()}";
+        resourceScreen.Q<Label>("fuel").text = $"Total Money: {player.totalFuel.ToString()}";
     }
 
     public DateTime date = new DateTime(2030, 1, 1);
